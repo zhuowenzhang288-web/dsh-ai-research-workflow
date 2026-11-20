@@ -1,0 +1,4 @@
+- insert:
+    - id: ai-research-workflow
+      name: 'dsh-ai-research-workflow'
+      config: {}
