@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 472" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="472" fill="#FFFFFF"/>
+
+  <!-- ===== Title ===== -->
+  <text x="480" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0F172A">现象驱动 · AI 科研工作流</text>
+  <text x="480" y="66" text-anchor="middle" font-size="13" fill="#64748B">先在小系统里做实验找规律，再由规律反推 idea —— 不凭空胡想</text>
+
+  <!-- ===== Main chain ===== -->
+  <!-- c1 造现象 -->
+  <rect x="30" y="95" width="130" height="78" rx="12" fill="#ECFDF5"/>
+  <rect x="30" y="105" width="4" height="58" rx="2" fill="#10B981"/>
+  <text x="48" y="133" font-size="14.5" font-weight="600" fill="#065F46">造现象</text>
+  <text x="48" y="155" font-size="10" fill="#047857">小系统·海量秒级实验</text>
+
+  <!-- c2 找规律 -->
+  <rect x="185" y="95" width="130" height="78" rx="12" fill="#F0FDFA"/>
+  <rect x="185" y="105" width="4" height="58" rx="2" fill="#14B8A6"/>
+  <text x="203" y="133" font-size="14.5" font-weight="600" fill="#134E4A">找规律</text>
+  <text x="203" y="155" font-size="10" fill="#0F766E">普遍成立 → 公式化</text>
+
+  <!-- c3 规律反推 idea -->
+  <rect x="340" y="95" width="130" height="78" rx="12" fill="#FFFBEB"/>
+  <rect x="340" y="105" width="4" height="58" rx="2" fill="#F59E0B"/>
+  <text x="358" y="133" font-size="14.5" font-weight="600" fill="#92400E">规律反推 idea</text>
+  <text x="358" y="155" font-size="10" fill="#B45309">现象驱动，不凭空想</text>
+
+  <!-- c4 三轮查新 -->
+  <rect x="495" y="95" width="130" height="78" rx="12" fill="#F0F9FF"/>
+  <rect x="495" y="105" width="4" height="58" rx="2" fill="#0EA5E9"/>
+  <text x="513" y="133" font-size="14.5" font-weight="600" fill="#0C4A6E">三轮查新</text>
+  <text x="513" y="155" font-size="10" fill="#0369A1">读正文·非论文渠道</text>
+
+  <!-- c5 上卡验证 -->
+  <rect x="650" y="95" width="130" height="78" rx="12" fill="#F5F3FF"/>
+  <rect x="650" y="105" width="4" height="58" rx="2" fill="#8B5CF6"/>
+  <text x="668" y="133" font-size="14.5" font-weight="600" fill="#4C1D95">上卡验证</text>
+  <text x="668" y="155" font-size="10" fill="#6D28D9">固定预算·基线先行</text>
+
+  <!-- c6 写作与审计 -->
+  <rect x="805" y="95" width="130" height="78" rx="12" fill="#F8FAFC"/>
+  <rect x="805" y="105" width="4" height="58" rx="2" fill="#475569"/>
+  <text x="823" y="133" font-size="14.5" font-weight="600" fill="#1E293B">写作与审计</text>
+  <text x="823" y="155" font-size="10" fill="#475569">story→paper·五层审计</text>
+
+  <!-- chain arrows -->
+  <line x1="160" y1="134" x2="183" y2="134" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="315" y1="134" x2="338" y2="134" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="470" y1="134" x2="493" y2="134" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="625" y1="134" x2="648" y2="134" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="780" y1="134" x2="803" y2="134" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- ===== Branches from 查新 ===== -->
+  <polyline points="560,173 560,190" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="415" y1="190" x2="745" y2="190" stroke="#94A3B8" stroke-width="1.5"/>
+  <line x1="415" y1="190" x2="415" y2="202" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="745" y1="190" x2="745" y2="202" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- branch left: 撞车深挖 -->
+  <rect x="295" y="205" width="240" height="58" rx="10" fill="#FFFBEB" stroke="#FDE68A"/>
+  <rect x="295" y="213" width="4" height="42" rx="2" fill="#F59E0B"/>
+  <text x="313" y="232" font-size="13.5" font-weight="600" fill="#92400E">撞车 ≠ 终点</text>
+  <text x="313" y="251" font-size="10" fill="#B45309">深挖文献没测过的可证伪新预言</text>
+
+  <!-- branch right: 实质重复淘汰 -->
+  <rect x="625" y="205" width="240" height="58" rx="10" fill="#FEF2F2" stroke="#FECACA"/>
+  <rect x="625" y="213" width="4" height="42" rx="2" fill="#EF4444"/>
+  <text x="643" y="232" font-size="13.5" font-weight="600" fill="#991B1B">实质重复 → 淘汰</text>
+  <text x="643" y="251" font-size="10" fill="#B91C1C">记入漏斗 · 失败也入库</text>
+
+  <!-- ===== Tools ===== -->
+  <text x="40" y="299" font-size="12" font-weight="600" fill="#475569">配套工具 · 纯 Python 标准库，任何 agent 都能跑</text>
+
+  <!-- t1 novelty_check -->
+  <rect x="40" y="312" width="220" height="46" rx="23" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="52" y="322" width="4" height="26" rx="2" fill="#0EA5E9"/>
+  <text x="66" y="333" font-size="12" font-weight="600" fill="#0F172A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_check.py</text>
+  <text x="66" y="349" font-size="10" fill="#64748B">查 arXiv 出候选清单</text>
+
+  <!-- t2 experiment_log -->
+  <rect x="272" y="312" width="220" height="46" rx="23" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="284" y="322" width="4" height="26" rx="2" fill="#8B5CF6"/>
+  <text x="298" y="333" font-size="12" font-weight="600" fill="#0F172A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">experiment_log.py</text>
+  <text x="298" y="349" font-size="10" fill="#64748B">keep · discard · crash 汇总</text>
+
+  <!-- t3 verify_citations -->
+  <rect x="504" y="312" width="220" height="46" rx="23" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="516" y="322" width="4" height="26" rx="2" fill="#475569"/>
+  <text x="530" y="333" font-size="12" font-weight="600" fill="#0F172A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">verify_citations.py</text>
+  <text x="530" y="349" font-size="10" fill="#64748B">引用核验 → 幻觉率 HR</text>
+
+  <!-- t4 audit_chain -->
+  <rect x="736" y="312" width="220" height="46" rx="23" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="748" y="322" width="4" height="26" rx="2" fill="#475569"/>
+  <text x="762" y="333" font-size="12" font-weight="600" fill="#0F172A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">audit_chain.py</text>
+  <text x="762" y="349" font-size="10" fill="#64748B">五层审计 PASS / WARN / FAIL</text>
+
+  <text x="40" y="378" font-size="10" fill="#94A3B8">色条颜色 = 该工具服务的环节</text>
+
+  <!-- ===== Platform bar ===== -->
+  <rect x="20" y="398" width="920" height="54" rx="12" fill="#0F172A"/>
+  <text x="480" y="420" text-anchor="middle" font-size="11.5" fill="#94A3B8">一套 SKILL.md（方法论） + scripts/（能力） · 放对目录即用</text>
+  <text x="480" y="440" text-anchor="middle" font-size="14" font-weight="600" fill="#F8FAFC">Claude Code · Codex · Cursor · opencode · DeepSeek Harness</text>
+</svg>
