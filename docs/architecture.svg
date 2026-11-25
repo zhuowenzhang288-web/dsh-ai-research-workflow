@@ -65,13 +65,13 @@
   <rect x="295" y="205" width="240" height="58" rx="10" fill="#FFFBEB" stroke="#FDE68A"/>
   <rect x="295" y="213" width="4" height="42" rx="2" fill="#F59E0B"/>
   <text x="313" y="232" font-size="13.5" font-weight="600" fill="#92400E">撞车 ≠ 终点</text>
-  <text x="313" y="251" font-size="10" fill="#B45309">深挖文献没测过的可证伪新预言</text>
+  <text x="313" y="251" font-size="10" fill="#B45309">换维度挖新预言，不是收窄题目</text>
 
   <!-- branch right: 实质重复淘汰 -->
   <rect x="625" y="205" width="240" height="58" rx="10" fill="#FEF2F2" stroke="#FECACA"/>
   <rect x="625" y="213" width="4" height="42" rx="2" fill="#EF4444"/>
   <text x="643" y="232" font-size="13.5" font-weight="600" fill="#991B1B">实质重复 → 淘汰</text>
-  <text x="643" y="251" font-size="10" fill="#B91C1C">记入漏斗 · 失败也入库</text>
+  <text x="643" y="251" font-size="10" fill="#B91C1C">记入漏斗 · 警惕原地越钻越窄</text>
 
   <!-- ===== Tools ===== -->
   <text x="40" y="299" font-size="12" font-weight="600" fill="#475569">配套工具 · 纯 Python 标准库，任何 agent 都能跑</text>
