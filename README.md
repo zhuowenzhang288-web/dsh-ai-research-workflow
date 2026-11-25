@@ -32,6 +32,8 @@ install_bundle /path/to/dsh-ai-research-workflow
 
 装好后，新 session 里 agent 就能按需加载 `ai-research-workflow` skill，脚本在 skill 目录的 `scripts/` 下。
 
+**建议再加一层保险**：把主仓的 `AGENTS.md`（33 行核心纪律）放到你的项目根目录——DSH 的 `dsh-agent-instructions` 插件会**每次请求自动注入**，解决"skill 按需加载可能漏触发"的问题。
+
 ## 结构
 
 ```
