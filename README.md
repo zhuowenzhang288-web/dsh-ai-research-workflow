@@ -13,6 +13,10 @@
 
 带 4 个纯 Python 标准库脚本：查新（`novelty_check.py`）、实验日志（`experiment_log.py`）、引用核验（`verify_citations.py`）、五层审计（`audit_chain.py`）。
 
+![架构图](docs/architecture.svg)
+
+> 完整介绍与多平台用法见主仓 [ai-research-workflow](https://github.com/zhuowenzhang288-web/ai-research-workflow)。
+
 ## 安装
 
 ```bash
