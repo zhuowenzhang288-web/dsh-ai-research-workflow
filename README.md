@@ -11,7 +11,7 @@
 
 > 不凭空想 idea——先在小系统跑海量小实验找规律，由规律反推 idea，再查新、再上卡。
 
-带 4 个纯 Python 标准库脚本：查新（`novelty_check.py`）、实验日志（`experiment_log.py`）、引用核验（`verify_citations.py`）、五层审计（`audit_chain.py`）。
+带 6 个纯 Python 标准库脚本：查新（`novelty_check.py`）、查新取证校验（`novelty_report.py`）、选题漏斗+防窄化（`funnel.py`）、实验日志（`experiment_log.py`）、引用核验（`verify_citations.py`）、五层审计+结果编造检查（`audit_chain.py`）。
 
 ![架构图](docs/architecture.svg)
 
@@ -33,6 +33,18 @@ install_bundle /path/to/dsh-ai-research-workflow
 装好后，新 session 里 agent 就能按需加载 `ai-research-workflow` skill，脚本在 skill 目录的 `scripts/` 下。
 
 **建议再加一层保险**：把主仓的 `AGENTS.md`（33 行核心纪律）放到你的项目根目录——DSH 的 `dsh-agent-instructions` 插件会**每次请求自动注入**，解决"skill 按需加载可能漏触发"的问题。
+
+## 科研模式（agent preset）—— 这才是"变成 agent"
+
+本仓还带一个 **DSH agent 模式**：`research-preset/`。装上它，DSH 的模式列表里会多一个「科研模式」。
+
+```bash
+install_bundle /path/to/dsh-ai-research-workflow/research-preset
+```
+
+选「科研模式」开新会话，agent 的**系统提示里就烧进了科研纪律**（现象驱动 / 查新读正文 / 证据四分 / 防窄化 / 门控）——它不再"靠自觉加载 skill"，而是**这个模式本身就是科研 agent**。完整方法论与脚本仍可用 skill 工具加载。
+
+> 这就是"workflow → agent"的正确姿势：不自己写运行时（那是 harness 赛道），而是用 DSH 的 preset 机制把纪律内化成人格。运行时/循环仍由 DSH 提供。
 
 ## 结构
 
