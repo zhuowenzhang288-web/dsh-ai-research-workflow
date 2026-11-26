@@ -204,7 +204,7 @@
   <text x="60" y="530" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">c</text>
   <g filter="url(#soft)"><rect x="76" y="538" width="150" height="24" rx="12" fill="#F59E0B"/></g>
   <text x="151" y="554" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">🛡️ 双保险 · DUAL-LAYER</text>
-  <text x="240" y="555" font-size="9.5" fill="#94A3B8">解决「skill 靠 agent 自觉加载、一忙就忘」</text>
+  <text x="240" y="555" font-size="9.5" fill="#94A3B8">解决「skill 靠 agent 自觉加载、一忙就忘」 · 🔄 自动循环见 AUTO_MODE.md</text>
 
   <g filter="url(#soft)"><rect x="76" y="572" width="276" height="32" rx="16" fill="#FFFFFF" stroke="#34D399" stroke-width="2"/></g>
   <text x="92" y="592" font-size="10.5" font-weight="700" fill="#047857">📌 AGENTS.md</text>
