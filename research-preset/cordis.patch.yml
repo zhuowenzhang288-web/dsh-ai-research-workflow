@@ -1,0 +1,115 @@
+# Agent preset "research": standard capabilities + a research persona.
+# Selecting this mode makes the agent a research agent: the core discipline is
+# baked into the system prompt (persona), so it never depends on "remembering
+# to load the skill". Full method + scripts remain loadable via the skill tool.
+- insert:
+    - id: preset-research
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: research
+        name: 科研模式
+        description: 现象驱动的科研 agent：先做小实验找规律再反推 idea；查新读正文、证据四分、防窄化、五层审计。
+        order: 5
+        plugins:
+          - id: persona
+            name: '@deepseek-ai/dsh-persona'
+            config:
+              prefix: |
+                You are a research agent (科研模式) powered by the {{model}} model.
+                你遵循「现象驱动科研工作流」。核心纪律（每次行动前自检）：
+                1. 现象驱动优先：不凭空想 idea。先在小系统跑海量秒级实验找规律，由规律反推 idea；文献挖空位次之；凭空想是最后手段。
+                2. 查新取证：只读摘要不得下 KEEP/KILL 判定；判新旧必须读正文的方法+实验+图表；逐篇标读取程度（摘要级/正文/全文）。
+                3. 证据四分：每句标清【论文事实｜我方假设｜已实现机制｜实验结果】；把猜想写成结论=违规。
+                4. 撞车不是终点：深挖=换维度翻可证伪新预言，≠收窄题目；警惕原地越钻越窄（token 黑洞），换方向>钻缝。
+                5. 门控：查新/设计/管道/投稿四门，门前停人；自动循环时门前降级为记 PENDING_APPROVAL 继续，投稿门永不降级。
+                完整方法论与 6 个零依赖脚本用 skill 工具加载 ai-research-workflow；脚本在 skill 目录 scripts/ 下。
+          - id: agent-instructions
+            name: '@deepseek-ai/dsh-agent-instructions'
+            config:
+              maxBytes: 65536
+          - id: time-context
+            name: '@deepseek-ai/dsh-time-context'
+          - id: tool-bash
+            name: '@deepseek-ai/dsh-tool-bash'
+            disabled: !!js process.platform === 'win32'
+          - id: tool-pwsh
+            name: '@deepseek-ai/dsh-tool-pwsh'
+            disabled: !!js process.platform !== 'win32'
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+            config:
+              applyPatch: false
+          - id: tool-fs-search
+            name: '@deepseek-ai/dsh-tool-fs-search'
+            config:
+              sampleOverCapGlobResults: false
+          - id: tool-jobs
+            name: '@deepseek-ai/dsh-tool-jobs'
+          - id: tool-schedule
+            name: '@deepseek-ai/dsh-tool-schedule'
+          - id: skill-filesystem
+            name: '@deepseek-ai/dsh-skill-filesystem'
+          - id: tool-skill
+            name: '@deepseek-ai/dsh-tool-skill'
+          - id: command-goal
+            name: '@deepseek-ai/dsh-command-goal'
+          - id: tool-goal
+            name: '@deepseek-ai/dsh-tool-goal'
+          - id: compaction
+            name: cordis:group
+            group: true
+            isolate:
+              compaction: true
+              toolResultPruner: true
+            config:
+              - id: compaction-basic
+                name: '@deepseek-ai/dsh-compaction-basic'
+              - id: command-compact
+                name: '@deepseek-ai/dsh-command-compact'
+              - id: tool-result-pruner
+                name: '@deepseek-ai/dsh-compaction-tool-result-pruner'
+                config:
+                  thresholdChars: 8192
+                  headChars: 4096
+                  tailChars: 1024
+          - id: delegation
+            name: cordis:group
+            group: true
+            isolate:
+              workflowEngine: true
+            config:
+              - id: tool-subagent-control
+                name: '@deepseek-ai/dsh-tool-subagent-control'
+                config:
+                  interrupt: false
+              - id: tool-subagent
+                name: '@deepseek-ai/dsh-tool-subagent'
+                config:
+                  provider: spawn
+                  toolName: subagent
+                  modelSelection: true
+                  modelDiscovery: true
+              - id: tool-subagent-fork
+                name: '@deepseek-ai/dsh-tool-subagent'
+                config:
+                  provider: fork
+                  toolName: subagent_fork
+              - id: workflow-ptc
+                name: '@deepseek-ai/dsh-workflow-ptc'
+                config:
+                  provider: spawn
+              - id: tool-workflow
+                name: '@deepseek-ai/dsh-tool-workflow'
+          - id: tool-ask-user
+            name: '@deepseek-ai/dsh-tool-ask-user'
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+            config:
+              allowParallelInProgress: true
+          - id: tool-web
+            name: '@deepseek-ai/dsh-tool-web'
+            config:
+              fetch: true
+              searchTimeoutMs: 60000
+          - id: present
+            name: '@deepseek-ai/dsh-tool-present'
