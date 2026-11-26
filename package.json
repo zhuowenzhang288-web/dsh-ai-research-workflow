@@ -1,5 +1,5 @@
 {
-  "name": "gewu",
+  "name": "dsh-research-agent",
   "version": "1.0.0",
   "description": "格物 · DSH 原生科研 agent：现象驱动工作流 + 科研模式 preset + 侦探人格 + 6 个零依赖脚本",
   "publishConfig": {
