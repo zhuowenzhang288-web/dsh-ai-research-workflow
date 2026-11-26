@@ -12,6 +12,7 @@
 只依赖 Python 标准库。
 """
 import argparse
+import os
 import sys
 
 LAYERS = [
@@ -88,7 +89,56 @@ def summarize(results):
         print("结论：✅ 通过 —— 全 PASS，可出终稿。")
 
 
+def verify_results(report_f, log_files):
+    """结果编造检查（§7.3.A「结果编造」的代码化）：
+    报告里每个实验性数值，必须在日志/结果文件里能找到锚点。
+    找不到 → WARN（人工判断，不误杀）。只依赖标准库。"""
+    import re
+    report = open(report_f, encoding="utf-8").read()
+    log_text = ""
+    for lf in log_files:
+        if os.path.exists(lf):
+            log_text += open(lf, encoding="utf-8", errors="replace").read() + "\n"
+    if not log_text:
+        print(f"⚠️ 未找到任何日志文件 {[log_files]}——无法做 back-pointer 检查")
+        return 2
+
+    # 提取实验性数值：小数、百分数、指标词后的整数；排除年份
+    pat = re.compile(r"(?<!\d)(\d+\.\d+%?|\d+%|(?<=[=\s:，,])\d{2,}(?![\d年]))")
+    year = re.compile(r"^(19|20)\d{2}$")
+    lines = report.split("\n")
+    unanchored = []
+    for i, line in enumerate(lines, 1):
+        for m in pat.finditer(line):
+            val = m.group(1)
+            if year.match(val.rstrip("%")):
+                continue
+            needle = val.rstrip("%")
+            if re.search(r"(?<![\d.])" + re.escape(needle) + r"(?![\d.%])", log_text):
+                continue
+            unanchored.append((i, val, line.strip()[:60]))
+    if not unanchored:
+        print("✅ 报告中所有实验性数值都能在日志中找到锚点")
+        return 0
+    print(f"⚠️ {len(unanchored)} 处数值无 back-pointer（报告里有、日志里没有）:")
+    for ln, val, ctx in unanchored:
+        print(f"  第{ln}行 「{val}」 …{ctx}")
+    print("\n处置：逐条确认——若来自口头试跑/外部文献，补标注来源；")
+    print("若属于实验结果，先在 experiment_log.py 补记后再写入报告。")
+    return 2
+
+
 def main():
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "verify-results":
+        ap = argparse.ArgumentParser(description="结果编造 back-pointer 检查")
+        ap.add_argument("report")
+        ap.add_argument("--log", dest="logs", action="append", default=[],
+                        help="日志/结果文件，可多次（默认 results.tsv run.log）")
+        args = ap.parse_args(sys.argv[2:])
+        logs = args.logs or ["results.tsv", "run.log", "EXPERIMENT_LOG.md", "实验日志.md"]
+        sys.exit(verify_results(args.report, logs))
+
     ap = argparse.ArgumentParser(description="五层审计链")
     ap.add_argument("--report", action="store_true", help="只看检查项，不交互")
     args = ap.parse_args()
