@@ -1,7 +1,7 @@
 {
-  "name": "dsh-ai-research-workflow",
-  "version": "0.1.0",
-  "description": "Phenomenon-driven research workflow skill: small experiments find laws first, then ideas",
+  "name": "gewu",
+  "version": "1.0.0",
+  "description": "格物 · DSH 原生科研 agent：现象驱动工作流 + 科研模式 preset + 侦探人格 + 6 个零依赖脚本",
   "publishConfig": {
     "access": "public"
   },
@@ -16,7 +16,8 @@
     "index.js",
     "cordis.patch.yml",
     "locale/*.json",
-    "assets"
+    "assets",
+    "research-preset"
   ],
   "dsh": {
     "bundle": {
@@ -28,4 +29,7 @@
     "@deepseek-ai/cordis": "~4.1.0",
     "@deepseek-ai/dsh-skill": "0.2.2-rc.5"
   },
-  "d
+  "dependencies": {
+    "yaml": "^2.9.1"
+  }
+}
