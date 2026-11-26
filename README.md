@@ -1,67 +1,47 @@
-# dsh-ai-research-workflow
+<div align="center">
 
-> 这是 [ai-research-workflow](https://github.com/zhuowenzhang288-web/ai-research-workflow) 的 **DeepSeek Harness 可安装版（bundle）**。
-> 想看完整介绍、痛点、多平台用法，去主仓 👉 —— 本仓只提供 DSH 一键安装。
+# 🕵️ 格物 · GEWU
 
-一个 DSH **skill bundle**：把「现象驱动的科研工作流」skill（含 4 个能力脚本）打包成可一键安装的插件。
+**DSH 原生科研 agent** —— 格物致知：先接触现象，再抵达知识。
 
-## 是什么
+真相只有一个，证据说了算；先看见现象，再相信结论。
 
-`ai-research-workflow` 是一套方向无关的科研工作流 skill，核心是**现象驱动**：
-
-> 不凭空想 idea——先在小系统跑海量小实验找规律，由规律反推 idea，再查新、再上卡。
-
-带 6 个纯 Python 标准库脚本：查新（`novelty_check.py`）、查新取证校验（`novelty_report.py`）、选题漏斗+防窄化（`funnel.py`）、实验日志（`experiment_log.py`）、引用核验（`verify_citations.py`）、五层审计+结果编造检查（`audit_chain.py`）。
+[![License: MIT](https://img.shields.io/badge/License-MIT-FDE68A.svg)](LICENSE)
+[![Release](https://img.shields.io/badge/release-v1.0.0-DC2626.svg)](../../releases)
 
 ![架构图](docs/architecture.svg)
 
-> 完整介绍与多平台用法见主仓 [ai-research-workflow](https://github.com/zhuowenzhang288-web/ai-research-workflow)。
+</div>
+
+---
+
+## 这是什么
+
+「格物」是把 [ai-research-workflow](https://github.com/zhuowenzhang288-web/ai-research-workflow) 方法论**完整融合进 DeepSeek Harness** 的科研 agent 产品，不是单个 skill 插件。它一次给你四件：
+
+| 组件 | 内容 | 作用 |
+|---|---|---|
+| **skill** | `assets/ai-research-workflow/`（SKILL.md + 6 脚本） | 方法论 + 可执行工具 |
+| **科研模式 preset** | `research-preset/` | 选模式即成科研 agent，纪律烧进系统提示 |
+| **人格** | 「格物」科研侦探 | 好奇但克制、证据至上、把失败当线索 |
+| **自动循环** | 见主仓 AUTO_MODE.md | goal + schedule 拼出无人值守循环 |
+
+> 引擎（模型 + harness）由 DSH 提供；格物装进去的是**技能、经验、上下文、人格**。
 
 ## 安装
 
 ```bash
-# 在 DSH 里，通过 Plugin Manager / agent 工具
-install_bundle dsh-ai-research-workflow
+# skill + 工具
+install_bundle /path/to/gewu
+# 科研模式（agent preset）
+install_bundle /path/to/gewu/research-preset
 ```
 
-或本地目录 link：
+装好后新开 session 选「科研模式」，迎接你的就是格物。
 
-```bash
-install_bundle /path/to/dsh-ai-research-workflow
-```
+## 跨平台
 
-装好后，新 session 里 agent 就能按需加载 `ai-research-workflow` skill，脚本在 skill 目录的 `scripts/` 下。
-
-**建议再加一层保险**：把主仓的 `AGENTS.md`（33 行核心纪律）放到你的项目根目录——DSH 的 `dsh-agent-instructions` 插件会**每次请求自动注入**，解决"skill 按需加载可能漏触发"的问题。
-
-## 科研模式（agent preset）—— 这才是"变成 agent"
-
-本仓还带一个 **DSH agent 模式**：`research-preset/`。装上它，DSH 的模式列表里会多一个「科研模式」。
-
-```bash
-install_bundle /path/to/dsh-ai-research-workflow/research-preset
-```
-
-选「科研模式」开新会话，agent 的**系统提示里就烧进了科研纪律**（现象驱动 / 查新读正文 / 证据四分 / 防窄化 / 门控）——它不再"靠自觉加载 skill"，而是**这个模式本身就是科研 agent**。完整方法论与脚本仍可用 skill 工具加载。
-
-> 这就是"workflow → agent"的正确姿势：不自己写运行时（那是 harness 赛道），而是用 DSH 的 preset 机制把纪律内化成人格。运行时/循环仍由 DSH 提供。
-
-## 结构
-
-```
-package.json                # dsh.bundle.patch 声明
-cordis.patch.yml            # mount 本插件
-index.js                    # 在 ctx.skills 上注册 skill（仿 dsh-skill-office）
-assets/ai-research-workflow/
-├── SKILL.md                # skill 本体（384 行）
-└── scripts/                # 4 个能力脚本
-locale/en.json, zh.json     # 标题与描述
-```
-
-## 说明
-
-- 依赖 DSH 的 skill registry（`@deepseek-ai/dsh-skill`），base 配置已自带。
-- skill 本体维护在 `assets/ai-research-workflow/SKILL.md`；改动以主仓为准，本仓同步跟进。
+格物的方法论本体（SKILL.md + scripts）不绑定 DSH，Claude Code / Codex / Cursor / opencode 均可用，见主仓 [ai-research-workflow](https://github.com/zhuowenzhang288-web/ai-research-workflow)。本仓是它的 **DSH 完整融合版**。
 
 ## License
 
