@@ -39,7 +39,7 @@
   <!-- ===== Title ===== -->
   <rect x="330" y="18" width="12" height="12" rx="3" fill="#FDE68A" transform="rotate(45 336 24)"/>
   <rect x="348" y="18" width="12" height="12" rx="3" fill="#FFFFFF" opacity="0.9" transform="rotate(45 354 24)"/>
-  <text x="500" y="40" text-anchor="middle" font-size="23" font-weight="800" fill="#1E293B">🕵️ 现象驱动 · AI 科研 Agent</text>
+  <text x="500" y="40" text-anchor="middle" font-size="23" font-weight="800" fill="#1E293B">🕵️ DSH Research Agent · 现象驱动</text>
   <text x="500" y="64" text-anchor="middle" font-size="12.5" fill="#64748B">先在小系统里做实验找规律，再由规律反推 idea —— 不凭空胡想</text>
 
   <!-- ===== (a) Left vertical tab ===== -->
@@ -172,56 +172,57 @@
   <text x="680" y="84" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">b</text>
   <g filter="url(#soft)"><rect x="700" y="94" width="196" height="24" rx="12" fill="#8FAADC"/></g>
   <text x="798" y="110" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">🧰 配套工具 · ZERO-DEP</text>
-
-  <g filter="url(#soft)"><rect x="700" y="130" width="250" height="84" rx="14" fill="#FFFFFF" stroke="#93C5FD" stroke-width="2"/></g>
-  <rect x="710" y="142" width="5" height="60" rx="2.5" fill="#60A5FA"/>
-  <text x="726" y="156" font-size="12" font-weight="700" fill="#1E3A8A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">🔎 novelty_check.py</text>
-  <text x="726" y="176" font-size="9.5" fill="#6B7280">查 arXiv 出候选清单</text>
-  <text x="726" y="194" font-size="9" fill="#60A5FA">三轮查新的第一步</text>
-
-  <g filter="url(#soft)"><rect x="700" y="224" width="250" height="84" rx="14" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2"/></g>
-  <rect x="710" y="236" width="5" height="60" rx="2.5" fill="#A78BFA"/>
-  <text x="726" y="250" font-size="12" font-weight="700" fill="#4C1D95" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">📒 experiment_log.py</text>
-  <text x="726" y="270" font-size="9.5" fill="#6B7280">keep · discard · crash 汇总</text>
-  <text x="726" y="288" font-size="9" fill="#A78BFA">每跑一次记一笔</text>
-
-  <g filter="url(#soft)"><rect x="700" y="318" width="250" height="84" rx="14" fill="#FFFFFF" stroke="#86EFAC" stroke-width="2"/></g>
-  <rect x="710" y="330" width="5" height="60" rx="2.5" fill="#34D399"/>
-  <text x="726" y="344" font-size="12" font-weight="700" fill="#14532D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">✅ verify_citations.py</text>
-  <text x="726" y="364" font-size="9.5" fill="#6B7280">引用核验 → 幻觉率 HR</text>
-  <text x="726" y="382" font-size="9" fill="#34D399">投稿前必过</text>
-
-  <g filter="url(#soft)"><rect x="700" y="412" width="250" height="84" rx="14" fill="#FFFFFF" stroke="#FDA4AF" stroke-width="2"/></g>
-  <rect x="710" y="424" width="5" height="60" rx="2.5" fill="#F87171"/>
-  <text x="726" y="438" font-size="12" font-weight="700" fill="#881337" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">🛡️ audit_chain.py</text>
-  <text x="726" y="458" font-size="9.5" fill="#6B7280">五层审计 PASS / WARN / FAIL</text>
-  <text x="726" y="476" font-size="9" fill="#F87171">终稿闸门 · 任一 FAIL 即阻断</text>
-  <text x="700" y="497" font-size="8.5" fill="#94A3B8">＋ funnel.py（选题漏斗·防窄化）· novelty_report.py（取证校验）</text>
-
-  <!-- ===== (c) Dual-layer zone ===== -->
+  <g filter="url(#soft)"><rect x="700" y="128" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/></g>
+  <rect x="710" y="138" width="5" height="36" rx="2.5" fill="#60A5FA"/>
+  <text x="726" y="150" font-size="11" font-weight="700" fill="#1E3A8A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_check.py</text>
+  <text x="726" y="168" font-size="9" fill="#6B7280">查 arXiv 出候选清单</text>
+  <g filter="url(#soft)"><rect x="700" y="190" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#38BDF8" stroke-width="2"/></g>
+  <rect x="710" y="200" width="5" height="36" rx="2.5" fill="#38BDF8"/>
+  <text x="726" y="212" font-size="11" font-weight="700" fill="#0C4A6E" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_report.py</text>
+  <text x="726" y="230" font-size="9" fill="#6B7280">取证校验 · 缺标即 FAIL</text>
+  <g filter="url(#soft)"><rect x="700" y="252" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#34D399" stroke-width="2"/></g>
+  <rect x="710" y="262" width="5" height="36" rx="2.5" fill="#34D399"/>
+  <text x="726" y="274" font-size="11" font-weight="700" fill="#14532D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">funnel.py</text>
+  <text x="726" y="292" font-size="9" fill="#6B7280">选题漏斗 + 防窄化预警</text>
+  <g filter="url(#soft)"><rect x="700" y="314" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2"/></g>
+  <rect x="710" y="324" width="5" height="36" rx="2.5" fill="#A78BFA"/>
+  <text x="726" y="336" font-size="11" font-weight="700" fill="#4C1D95" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">experiment_log.py</text>
+  <text x="726" y="354" font-size="9" fill="#6B7280">keep · discard · crash</text>
+  <g filter="url(#soft)"><rect x="700" y="376" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#4ADE80" stroke-width="2"/></g>
+  <rect x="710" y="386" width="5" height="36" rx="2.5" fill="#4ADE80"/>
+  <text x="726" y="398" font-size="11" font-weight="700" fill="#14532D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">verify_citations.py</text>
+  <text x="726" y="416" font-size="9" fill="#6B7280">引用核验 → 幻觉率 HR</text>
+  <g filter="url(#soft)"><rect x="700" y="438" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#F87171" stroke-width="2"/></g>
+  <rect x="710" y="448" width="5" height="36" rx="2.5" fill="#F87171"/>
+  <text x="726" y="460" font-size="11" font-weight="700" fill="#881337" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">audit_chain.py</text>
+  <text x="726" y="478" font-size="9" fill="#6B7280">五层审计 + 结果编造检查</text>
+  <!-- ===== (c) Fusion zone ===== -->
   <rect x="60" y="526" width="910" height="88" rx="20" fill="#FFFFFF" fill-opacity="0.6" stroke="#C7CEDC" stroke-width="1.8" stroke-dasharray="7 5"/>
   <circle cx="60" cy="526" r="12" fill="#64748B"/>
   <text x="60" y="530" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">c</text>
-  <g filter="url(#soft)"><rect x="76" y="538" width="150" height="24" rx="12" fill="#F59E0B"/></g>
-  <text x="151" y="554" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">🛡️ 双保险 · DUAL-LAYER</text>
-  <text x="240" y="555" font-size="9.5" fill="#94A3B8">解决「skill 靠 agent 自觉加载、一忙就忘」 · 🔄 自动循环见 AUTO_MODE.md</text>
+  <g filter="url(#soft)"><rect x="76" y="538" width="170" height="24" rx="12" fill="#DC2626"/></g>
+  <text x="161" y="554" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">🧬 agent 融合层 · FUSION</text>
+  <text x="258" y="555" font-size="9.5" fill="#94A3B8">模型+harness 借自 DSH · skill+经验+上下文+人格 我们提供</text>
 
-  <g filter="url(#soft)"><rect x="76" y="572" width="276" height="32" rx="16" fill="#FFFFFF" stroke="#34D399" stroke-width="2"/></g>
-  <text x="92" y="592" font-size="10.5" font-weight="700" fill="#047857">📌 AGENTS.md</text>
-  <text x="200" y="592" font-size="9.5" fill="#6B7280">33 行核心纪律 · 每次请求自动注入</text>
+  <g filter="url(#soft)"><rect x="76" y="572" width="190" height="32" rx="16" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/></g>
+  <text x="90" y="592" font-size="10.5" font-weight="700" fill="#B91C1C">🎭 科研模式 preset</text>
+  <text x="200" y="592" font-size="9" fill="#6B7280">人格烧进提示</text>
 
-  <g filter="url(#soft)"><rect x="380" y="572" width="276" height="32" rx="16" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/></g>
-  <text x="396" y="592" font-size="10.5" font-weight="700" fill="#1D4ED8">📖 SKILL.md</text>
-  <text x="486" y="592" font-size="9.5" fill="#6B7280">389 行方法论 · 按需加载补全</text>
+  <g filter="url(#soft)"><rect x="276" y="572" width="165" height="32" rx="16" fill="#FFFFFF" stroke="#34D399" stroke-width="2"/></g>
+  <text x="290" y="592" font-size="10.5" font-weight="700" fill="#047857">📌 AGENTS.md</text>
+  <text x="380" y="592" font-size="9" fill="#6B7280">必读注入</text>
 
-  <g filter="url(#soft)"><rect x="684" y="572" width="276" height="32" rx="16" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2"/></g>
-  <text x="700" y="592" font-size="10.5" font-weight="700" fill="#6D28D9">⚡ install.sh</text>
-  <text x="790" y="592" font-size="9.5" fill="#6B7280">一键安装 · 自动检测五平台</text>
+  <g filter="url(#soft)"><rect x="451" y="572" width="165" height="32" rx="16" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/></g>
+  <text x="465" y="592" font-size="10.5" font-weight="700" fill="#1D4ED8">📖 SKILL.md</text>
+  <text x="552" y="592" font-size="9" fill="#6B7280">按需补全</text>
 
-  <circle cx="368" cy="588" r="9" fill="#E2E8F0"/>
-  <text x="368" y="592" text-anchor="middle" font-size="11" font-weight="700" fill="#64748B">+</text>
-  <circle cx="672" cy="588" r="9" fill="#E2E8F0"/>
-  <text x="672" y="592" text-anchor="middle" font-size="11" font-weight="700" fill="#64748B">+</text>
+  <g filter="url(#soft)"><rect x="626" y="572" width="175" height="32" rx="16" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2"/></g>
+  <text x="640" y="592" font-size="10.5" font-weight="700" fill="#6D28D9">🔄 AUTO_MODE</text>
+  <text x="735" y="592" font-size="9" fill="#6B7280">自动循环</text>
+
+  <g filter="url(#soft)"><rect x="811" y="572" width="150" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/></g>
+  <text x="825" y="592" font-size="10.5" font-weight="700" fill="#334155">⚡ install.sh</text>
+  <text x="905" y="592" font-size="9" fill="#6B7280">一键装</text>
 
   <!-- ===== Palette strip ===== -->
   <text x="60" y="640" font-size="10" font-weight="700" fill="#94A3B8" letter-spacing="2">PALETTE</text>
