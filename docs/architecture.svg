@@ -1,241 +1,222 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 740" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1240" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
   <defs>
-    
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 z" fill="#F87171"/>
+    </marker>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#64748B" flood-opacity="0.2"/>
+    </filter>
     <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#DC2626"/>
       <stop offset="100%" stop-color="#7F1D1D"/>
     </linearGradient>
-    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M0,1 L9,5 L0,9 z" fill="#F87171"/>
-    </marker>
-    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#64748B" flood-opacity="0.22"/>
-    </filter>
-    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FFFFFF" flood-opacity="0.35"/>
-    </filter>
   </defs>
 
-  <!-- ===== Shinkai sky ===== -->
-  <rect width="1000" height="740" fill="#FDFBF7"/>
+  <rect width="1800" height="1240" fill="#FDFBF7"/>
+  <circle cx="1650" cy="60" r="10" fill="#FBCFE8" opacity="0.6"/>
+  <circle cx="1710" cy="90" r="7" fill="#C7D2FE" opacity="0.6"/>
+  <circle cx="120" cy="1180" r="8" fill="#A7F3D0" opacity="0.6"/>
 
+  <!-- Title -->
+  <text x="900" y="72" text-anchor="middle" font-size="42" font-weight="800" fill="#1E293B">🕵️ DSH Research Agent · 现象驱动科研工作流</text>
+  <text x="900" y="110" text-anchor="middle" font-size="20" fill="#64748B">先在小系统里做实验找规律，再由规律反推 idea —— 不凭空胡想 · 真相只有一个，证据说了算</text>
 
+  <!-- left tab -->
+  <rect x="24" y="160" width="34" height="560" rx="17" fill="#B91C1C" stroke="#FFFFFF" stroke-width="3"/>
+  <text x="41" y="440" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF" letter-spacing="3" transform="rotate(-90 41 440)">RESEARCH LOOP 🔬</text>
 
-  <!-- bokeh -->
-  <circle cx="250" cy="30" r="5" fill="#C7D2FE" opacity="0.6"/>
-  <circle cx="430" cy="20" r="4" fill="#FDE68A" opacity="0.7"/>
-  <circle cx="590" cy="36" r="4" fill="#FBCFE8" opacity="0.55"/>
-  <circle cx="760" cy="24" r="4" fill="#A7F3D0" opacity="0.6"/>
-  <circle cx="948" cy="150" r="6" fill="#C7D2FE" opacity="0.5"/>
-  <circle cx="20" cy="250" r="5" fill="#FDE68A" opacity="0.6"/>
-  <circle cx="975" cy="400" r="6" fill="#FBCFE8" opacity="0.5"/>
-  <circle cx="940" cy="560" r="5" fill="#A7F3D0" opacity="0.5"/>
-  <text x="210" y="110" font-size="12" fill="#FFFFFF" opacity="0.85">✦</text>
-  <text x="655" y="52" font-size="10" fill="#FFFFFF" opacity="0.7">✦</text>
-  <text x="940" y="240" font-size="11" fill="#FDE68A" opacity="0.8">✦</text>
-  <text x="36" y="140" font-size="10" fill="#FFFFFF" opacity="0.7">✦</text>
-  <text x="500" y="700" font-size="11" fill="#E9D5FF" opacity="0.9">✦</text>
-
-  <!-- ===== Title ===== -->
-  <rect x="330" y="18" width="12" height="12" rx="3" fill="#FDE68A" transform="rotate(45 336 24)"/>
-  <rect x="348" y="18" width="12" height="12" rx="3" fill="#FFFFFF" opacity="0.9" transform="rotate(45 354 24)"/>
-  <text x="500" y="40" text-anchor="middle" font-size="23" font-weight="800" fill="#1E293B">🕵️ DSH Research Agent · 现象驱动</text>
-  <text x="500" y="64" text-anchor="middle" font-size="12.5" fill="#64748B">先在小系统里做实验找规律，再由规律反推 idea —— 不凭空胡想</text>
-
-  <!-- ===== (a) Left vertical tab ===== -->
-  <rect x="24" y="110" width="26" height="390" rx="13" fill="#B91C1C" stroke="#FFFFFF" stroke-width="2.5"/>
-  <text x="39" y="305" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF" letter-spacing="2" transform="rotate(-90 39 305)">RESEARCH LOOP 🔬</text>
-
-  <!-- ===== (a) Main loop zone ===== -->
-  <rect x="60" y="80" width="600" height="420" rx="20" fill="#FFFFFF" fill-opacity="0.6" stroke="#C7CEDC" stroke-width="1.8" stroke-dasharray="7 5"/>
-  <circle cx="60" cy="80" r="12" fill="#64748B"/>
-  <text x="60" y="84" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">a</text>
+  <!-- ===== (a) loop ===== -->
+  <rect x="60" y="140" width="1090" height="600" rx="24" fill="#FFFFFF" fill-opacity="0.6" stroke="#C7CEDC" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="60" cy="140" r="16" fill="#64748B"/>
+  <text x="60" y="146" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">a</text>
 
   <!-- c1 造现象 -->
-  <g filter="url(#soft)"><rect x="80" y="110" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#34D399" stroke-width="2"/></g>
-  <rect x="94" y="121" width="40" height="6.5" rx="3.25" fill="#6EE7B7"/>
-  <text x="94" y="148" font-size="13.5" font-weight="700" fill="#047857">🧫 造现象</text>
-  <text x="94" y="166" font-size="9.5" fill="#6B7280">小系统 · 海量秒级实验</text>
-  <rect x="94" y="178" width="12" height="10" rx="2" fill="#34D399" opacity="0.85"/>
-  <rect x="110" y="178" width="12" height="10" rx="2" fill="#34D399" opacity="0.6"/>
-  <rect x="126" y="178" width="12" height="10" rx="2" fill="#22D3EE" opacity="0.7"/>
-  <rect x="94" y="192" width="12" height="10" rx="2" fill="#FBBF24" opacity="0.75"/>
-  <rect x="110" y="192" width="12" height="10" rx="2" fill="#34D399" opacity="0.45"/>
-  <rect x="126" y="192" width="12" height="10" rx="2" fill="#F87171" opacity="0.55"/>
-  <text x="92" y="215" font-size="7.5" fill="#9CA3AF">n≈500 runs</text>
-  <text x="152" y="183" font-size="8" fill="#047857">预注册 ✓</text>
-  <text x="152" y="195" font-size="8" fill="#047857">四关 A1-A4 ✓</text>
-  <text x="152" y="207" font-size="8" fill="#047857">管道验证 ✓</text>
+  <g filter="url(#soft)"><rect x="90" y="180" width="330" height="220" rx="18" fill="#FFFFFF" stroke="#34D399" stroke-width="2.5"/></g>
+  <rect x="108" y="194" width="52" height="8" rx="4" fill="#6EE7B7"/>
+  <text x="108" y="230" font-size="22" font-weight="700" fill="#047857">🧫 造现象</text>
+  <text x="108" y="262" font-size="15" fill="#374151">小系统 0.1–4M 参数 · 几百个秒级实验</text>
+  <text x="108" y="290" font-size="15" fill="#374151">预注册写死阈值 → 再看数据</text>
+  <text x="108" y="318" font-size="15" fill="#374151">异常四关：效应量/锐利/可复现/非已知</text>
+  <text x="108" y="346" font-size="15" fill="#374151">管道先验证，再解释数据</text>
+  <text x="108" y="374" font-size="14" fill="#9CA3AF">退出：3 轮无异常 → 换旋钮族</text>
 
   <!-- c2 找规律 -->
-  <g filter="url(#soft)"><rect x="285" y="110" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#22D3EE" stroke-width="2"/></g>
-  <rect x="299" y="121" width="40" height="6.5" rx="3.25" fill="#67E8F9"/>
-  <text x="299" y="148" font-size="13.5" font-weight="700" fill="#0E7490">🔍 找规律</text>
-  <text x="299" y="166" font-size="9.5" fill="#6B7280">普遍成立 → 公式化</text>
-  <polyline points="299,196 321,184 343,189 365,176 387,171" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <polyline points="299,204 321,199 343,204 365,196 387,199" fill="none" stroke="#F87171" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round"/>
-  <circle cx="387" cy="171" r="3.5" fill="#22D3EE"/>
-  <text x="393" y="182" font-size="10.5" fill="#0E7490" font-family="Georgia, serif" font-style="italic">τ(β,λ)</text>
-  <text x="299" y="215" font-size="7.5" fill="#0E7490">全条件成立 ✓ 剔除不稳定 ✗</text>
+  <g filter="url(#soft)"><rect x="450" y="180" width="330" height="220" rx="18" fill="#FFFFFF" stroke="#22D3EE" stroke-width="2.5"/></g>
+  <rect x="468" y="194" width="52" height="8" rx="4" fill="#67E8F9"/>
+  <text x="468" y="230" font-size="22" font-weight="700" fill="#0E7490">🔍 找规律</text>
+  <text x="468" y="262" font-size="15" fill="#374151">每批追问：有无普遍成立的简单规律</text>
+  <text x="468" y="290" font-size="15" fill="#374151">剔除不稳定结论，全条件成立才保留</text>
+  <text x="468" y="318" font-size="15" fill="#374151">公式化，可复用可预测</text>
+  <polyline points="468,368 520,340 570,352 620,326 668,314" fill="none" stroke="#22D3EE" stroke-width="3" stroke-linecap="round"/>
+  <text x="690" y="330" font-size="18" fill="#0E7490" font-family="Georgia, serif" font-style="italic">τ(β,λ)</text>
+  <text x="468" y="388" font-size="14" fill="#9CA3AF">跨规模推广标「待大规模实测」</text>
 
-  <!-- c3 反推 idea -->
-  <g filter="url(#soft)"><rect x="480" y="110" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#FBBF24" stroke-width="2"/></g>
-  <rect x="494" y="121" width="40" height="6.5" rx="3.25" fill="#FCD34D"/>
-  <text x="494" y="148" font-size="13" font-weight="700" fill="#B45309">💡 规律反推 idea</text>
-  <text x="494" y="166" font-size="9.5" fill="#6B7280">现象驱动 · 不凭空想</text>
-  <rect x="494" y="176" width="44" height="20" rx="10" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
-  <text x="516" y="190" text-anchor="middle" font-size="8.5" font-weight="700" fill="#B45309">现象 ①</text>
-  <rect x="544" y="176" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
-  <text x="566" y="190" text-anchor="middle" font-size="8.5" font-weight="700" fill="#64748B">文献 ②</text>
-  <rect x="594" y="176" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" stroke-dasharray="3 2"/>
-  <text x="616" y="190" text-anchor="middle" font-size="8.5" fill="#9CA3AF">凭空 ③</text>
-  <text x="494" y="211" font-size="7.5" fill="#B45309">优先用规律 · 凭空想=高概率白做</text>
+  <!-- c3 反推idea -->
+  <g filter="url(#soft)"><rect x="810" y="180" width="330" height="220" rx="18" fill="#FFFFFF" stroke="#FBBF24" stroke-width="2.5"/></g>
+  <rect x="828" y="194" width="52" height="8" rx="4" fill="#FCD34D"/>
+  <text x="828" y="230" font-size="22" font-weight="700" fill="#B45309">💡 规律反推 idea</text>
+  <text x="828" y="262" font-size="15" fill="#374151">idea 是挖出来的，不是憋出来的</text>
+  <rect x="828" y="284" width="90" height="34" rx="17" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="873" y="306" text-anchor="middle" font-size="15" font-weight="700" fill="#B45309">现象 ①</text>
+  <rect x="930" y="284" width="90" height="34" rx="17" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="975" y="306" text-anchor="middle" font-size="15" font-weight="700" fill="#64748B">文献 ②</text>
+  <rect x="1032" y="284" width="90" height="34" rx="17" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="1077" y="306" text-anchor="middle" font-size="15" fill="#9CA3AF">凭空 ③</text>
+  <text x="828" y="352" font-size="15" fill="#374151">优先用规律；凭空想 = 高概率白做</text>
+  <text x="828" y="380" font-size="14" fill="#9CA3AF">规律 → 解释 → idea</text>
 
-  <!-- arrows row1 + S -->
-  <line x1="242" y1="165" x2="281" y2="165" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <line x1="447" y1="165" x2="476" y2="165" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <line x1="560" y1="222" x2="560" y2="286" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <g filter="url(#soft)"><rect x="566" y="246" width="58" height="17" rx="8.5" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/></g>
-  <text x="595" y="258" text-anchor="middle" font-size="9" fill="#64748B">候选 idea</text>
+  <!-- arrows row1 -->
+  <line x1="420" y1="290" x2="446" y2="290" stroke="#F87171" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/>
+  <line x1="780" y1="290" x2="806" y2="290" stroke="#F87171" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/>
+  <line x1="975" y1="400" x2="975" y2="436" stroke="#F87171" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/>
 
   <!-- c4 三轮查新 -->
-  <g filter="url(#soft)"><rect x="480" y="290" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/></g>
-  <rect x="494" y="301" width="40" height="6.5" rx="3.25" fill="#93C5FD"/>
-  <text x="494" y="328" font-size="13.5" font-weight="700" fill="#1D4ED8">📚 三轮查新</text>
-  <text x="494" y="346" font-size="9.5" fill="#6B7280">读正文 · 非论文渠道</text>
-  <circle cx="516" cy="374" r="12" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.8"/>
-  <text x="516" y="378" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1D4ED8">R1</text>
-  <circle cx="552" cy="374" r="12" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.8"/>
-  <text x="552" y="378" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1D4ED8">R2</text>
-  <circle cx="588" cy="374" r="12" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.8"/>
-  <text x="588" y="378" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1D4ED8">R3</text>
-  <text x="494" y="394" font-size="7.5" fill="#1D4ED8">相同问题·相同方法·相邻领域</text>
-  <rect x="586" y="352" width="54" height="15" rx="7.5" fill="#FEF2F2" stroke="#F87171" stroke-width="1.2"/>
-  <text x="613" y="363" text-anchor="middle" font-size="7.5" font-weight="700" fill="#B91C1C">只读摘要✗</text>
+  <g filter="url(#soft)"><rect x="810" y="440" width="330" height="200" rx="18" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2.5"/></g>
+  <rect x="828" y="454" width="52" height="8" rx="4" fill="#93C5FD"/>
+  <text x="828" y="490" font-size="22" font-weight="700" fill="#1D4ED8">📚 三轮查新</text>
+  <circle cx="850" cy="524" r="17" fill="#EFF6FF" stroke="#60A5FA" stroke-width="2"/>
+  <text x="850" y="530" text-anchor="middle" font-size="13" font-weight="700" fill="#1D4ED8">R1</text>
+  <circle cx="900" cy="524" r="17" fill="#EFF6FF" stroke="#60A5FA" stroke-width="2"/>
+  <text x="900" y="530" text-anchor="middle" font-size="13" font-weight="700" fill="#1D4ED8">R2</text>
+  <circle cx="950" cy="524" r="17" fill="#EFF6FF" stroke="#60A5FA" stroke-width="2"/>
+  <text x="950" y="530" text-anchor="middle" font-size="13" font-weight="700" fill="#1D4ED8">R3</text>
+  <rect x="990" y="508" width="130" height="30" rx="15" fill="#FEF2F2" stroke="#F87171" stroke-width="2"/>
+  <text x="1055" y="528" text-anchor="middle" font-size="14" font-weight="700" fill="#B91C1C">只读摘要 ✗</text>
+  <text x="828" y="566" font-size="15" fill="#374151">读正文：方法 + 实验 + 图表</text>
+  <text x="828" y="594" font-size="15" fill="#374151">覆盖非论文渠道 HF/GitHub/博客</text>
+  <text x="828" y="622" font-size="14" fill="#9CA3AF">R1 同问题 · R2 同方法 · R3 相邻领域</text>
 
   <!-- c5 上卡验证 -->
-  <g filter="url(#soft)"><rect x="285" y="290" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2"/></g>
-  <rect x="299" y="301" width="40" height="6.5" rx="3.25" fill="#C4B5FD"/>
-  <text x="299" y="328" font-size="13.5" font-weight="700" fill="#6D28D9">🚀 上卡验证</text>
-  <text x="299" y="346" font-size="9.5" fill="#6B7280">固定预算 · 基线先行</text>
-  <rect x="310" y="366" width="13" height="28" rx="2.5" fill="#34D399" opacity="0.85"/>
-  <rect x="331" y="378" width="13" height="16" rx="2.5" fill="#CBD5E1"/>
-  <rect x="352" y="384" width="13" height="10" rx="2.5" fill="#F87171" opacity="0.8"/>
-  <line x1="303" y1="396" x2="382" y2="396" stroke="#CBD5E1" stroke-width="1.5"/>
-  <text x="389" y="381" font-size="8" fill="#9CA3AF">keep</text>
-  <text x="389" y="394" font-size="8" fill="#9CA3AF">discard</text>
-  <line x1="310" y1="356" x2="310" y2="366" stroke="#F59E0B" stroke-width="1.5"/>
-  <text x="310" y="353" font-size="8" fill="#B45309">🚩基线</text>
-  <rect x="356" y="352" width="30" height="13" rx="6.5" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
-  <text x="371" y="362" text-anchor="middle" font-size="7" fill="#1D4ED8">⏱预算</text>
+  <g filter="url(#soft)"><rect x="450" y="440" width="330" height="200" rx="18" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2.5"/></g>
+  <rect x="468" y="454" width="52" height="8" rx="4" fill="#C4B5FD"/>
+  <text x="468" y="490" font-size="22" font-weight="700" fill="#6D28D9">🚀 上卡验证</text>
+  <text x="468" y="522" font-size="15" fill="#374151">固定预算 · 基线先行 · 评测只读</text>
+  <rect x="480" y="548" width="20" height="44" rx="3" fill="#34D399"/>
+  <rect x="512" y="566" width="20" height="26" rx="3" fill="#CBD5E1"/>
+  <rect x="544" y="576" width="20" height="16" rx="3" fill="#F87171"/>
+  <line x1="470" y1="594" x2="580" y2="594" stroke="#CBD5E1" stroke-width="2"/>
+  <text x="590" y="566" font-size="14" fill="#6B7280">keep</text>
+  <text x="590" y="588" font-size="14" fill="#6B7280">discard</text>
+  <text x="468" y="622" font-size="14" fill="#9CA3AF">简洁性准则：删代码不降性能=胜利</text>
 
   <!-- c6 写作审计 -->
-  <g filter="url(#soft)"><rect x="80" y="290" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/></g>
-  <rect x="94" y="301" width="40" height="6.5" rx="3.25" fill="#CBD5E1"/>
-  <text x="94" y="328" font-size="13.5" font-weight="700" fill="#334155">🛡️ 写作审计</text>
-  <text x="94" y="346" font-size="9.5" fill="#6B7280">story→paper · 五层链</text>
-  <rect x="96"  y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
-  <text x="98" y="372" font-size="9" fill="#059669">✓</text>
-  <rect x="118" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
-  <text x="120" y="372" font-size="9" fill="#059669">✓</text>
-  <rect x="140" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
-  <text x="142" y="372" font-size="9" fill="#059669">✓</text>
-  <rect x="162" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
-  <text x="164" y="372" font-size="9" fill="#059669">✓</text>
-  <rect x="184" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
-  <text x="186" y="372" font-size="9" fill="#059669">✓</text>
-  <circle cx="222" cy="368" r="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
-  <text x="222" y="371" text-anchor="middle" font-size="7" font-weight="700" fill="#DC2626">FAIL</text>
-  <text x="96" y="392" font-size="7.5" fill="#9CA3AF">诚·证·数·引·驳 全 PASS · 任一 FAIL 阻断</text>
+  <g filter="url(#soft)"><rect x="90" y="440" width="330" height="200" rx="18" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2.5"/></g>
+  <rect x="108" y="454" width="52" height="8" rx="4" fill="#CBD5E1"/>
+  <text x="108" y="490" font-size="22" font-weight="700" fill="#334155">🛡️ 写作审计</text>
+  <text x="108" y="522" font-size="15" fill="#374151">先 story 后 paper · 写作契约</text>
+  <g font-size="15" fill="#059669">
+    <rect x="108" y="544" width="22" height="22" rx="5" fill="#ECFDF5" stroke="#34D399" stroke-width="2"/><text x="112" y="561">✓</text>
+    <rect x="140" y="544" width="22" height="22" rx="5" fill="#ECFDF5" stroke="#34D399" stroke-width="2"/><text x="144" y="561">✓</text>
+    <rect x="172" y="544" width="22" height="22" rx="5" fill="#ECFDF5" stroke="#34D399" stroke-width="2"/><text x="176" y="561">✓</text>
+    <rect x="204" y="544" width="22" height="22" rx="5" fill="#ECFDF5" stroke="#34D399" stroke-width="2"/><text x="208" y="561">✓</text>
+    <rect x="236" y="544" width="22" height="22" rx="5" fill="#ECFDF5" stroke="#34D399" stroke-width="2"/><text x="240" y="561">✓</text>
+  </g>
+  <circle cx="300" cy="555" r="17" fill="#FEF2F2" stroke="#DC2626" stroke-width="2"/>
+  <text x="300" y="560" text-anchor="middle" font-size="11" font-weight="700" fill="#DC2626">FAIL</text>
+  <text x="108" y="600" font-size="15" fill="#374151">五层：诚·证·数·引·驳，全 PASS 才出稿</text>
+  <text x="108" y="626" font-size="14" fill="#9CA3AF">任一 FAIL 即阻断</text>
 
   <!-- arrows row2 -->
-  <line x1="478" y1="345" x2="449" y2="345" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <line x1="283" y1="345" x2="246" y2="345" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
-  <g filter="url(#soft)"><rect x="440" y="324" width="36" height="17" rx="8.5" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/></g>
-  <text x="458" y="336" text-anchor="middle" font-size="9" fill="#64748B">通过</text>
-  <g filter="url(#soft)"><rect x="244" y="324" width="48" height="17" rx="8.5" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/></g>
-  <text x="268" y="336" text-anchor="middle" font-size="9" fill="#64748B">出终稿</text>
+  <line x1="810" y1="540" x2="784" y2="540" stroke="#F87171" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/>
+  <line x1="450" y1="540" x2="424" y2="540" stroke="#F87171" stroke-width="4" stroke-linecap="round" marker-end="url(#arr)"/>
 
   <!-- branches -->
-  <polyline points="560,400 560,414 443,414 443,423" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
-  <polyline points="560,414 577,414 577,423" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" marker-end="url(#arr)"/>
-  <circle cx="560" cy="414" r="3" fill="#F87171"/>
-  <g filter="url(#soft)"><rect x="380" y="425" width="126" height="40" rx="20" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/></g>
-  <text x="443" y="449" text-anchor="middle" font-size="11.5" font-weight="700" fill="#92400E">⛏️ 深挖新维度</text>
-  <g filter="url(#soft)"><rect x="514" y="425" width="126" height="40" rx="20" fill="#FEF2F2" stroke="#F87171" stroke-width="2"/></g>
-  <text x="577" y="449" text-anchor="middle" font-size="11.5" font-weight="700" fill="#991B1B">🚫 淘汰入漏斗</text>
-  <text x="355" y="488" text-anchor="middle" font-size="9.5" fill="#B45309">📌 深挖 = 换维度翻预言 ≠ 收窄题目 · 警惕原地越钻越窄</text>
+  <polyline points="975,640 975,660 700,660 700,676" fill="none" stroke="#F87171" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+  <polyline points="975,660 1010,660 1010,676" fill="none" stroke="#F87171" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+  <circle cx="975" cy="660" r="4" fill="#F87171"/>
+  <g filter="url(#soft)"><rect x="560" y="678" width="280" height="44" rx="22" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5"/></g>
+  <text x="700" y="706" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">⛏️ 撞车 → 深挖新维度</text>
+  <g filter="url(#soft)"><rect x="880" y="678" width="260" height="44" rx="22" fill="#FEF2F2" stroke="#F87171" stroke-width="2.5"/></g>
+  <text x="1010" y="706" text-anchor="middle" font-size="17" font-weight="700" fill="#991B1B">🚫 实质重复 → 淘汰</text>
 
-  <!-- ===== (b) Tools zone ===== -->
-  <rect x="680" y="80" width="290" height="420" rx="20" fill="#FFFFFF" fill-opacity="0.6" stroke="#C7CEDC" stroke-width="1.8" stroke-dasharray="7 5"/>
-  <circle cx="680" cy="80" r="12" fill="#64748B"/>
-  <text x="680" y="84" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">b</text>
-  <g filter="url(#soft)"><rect x="700" y="94" width="196" height="24" rx="12" fill="#8FAADC"/></g>
-  <text x="798" y="110" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">🧰 配套工具 · ZERO-DEP</text>
-  <g filter="url(#soft)"><rect x="700" y="128" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/></g>
-  <rect x="710" y="138" width="5" height="36" rx="2.5" fill="#60A5FA"/>
-  <text x="726" y="150" font-size="11" font-weight="700" fill="#1E3A8A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_check.py</text>
-  <text x="726" y="168" font-size="9" fill="#6B7280">查 arXiv 出候选清单</text>
-  <g filter="url(#soft)"><rect x="700" y="190" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#38BDF8" stroke-width="2"/></g>
-  <rect x="710" y="200" width="5" height="36" rx="2.5" fill="#38BDF8"/>
-  <text x="726" y="212" font-size="11" font-weight="700" fill="#0C4A6E" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_report.py</text>
-  <text x="726" y="230" font-size="9" fill="#6B7280">取证校验 · 缺标即 FAIL</text>
-  <g filter="url(#soft)"><rect x="700" y="252" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#34D399" stroke-width="2"/></g>
-  <rect x="710" y="262" width="5" height="36" rx="2.5" fill="#34D399"/>
-  <text x="726" y="274" font-size="11" font-weight="700" fill="#14532D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">funnel.py</text>
-  <text x="726" y="292" font-size="9" fill="#6B7280">选题漏斗 + 防窄化预警</text>
-  <g filter="url(#soft)"><rect x="700" y="314" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2"/></g>
-  <rect x="710" y="324" width="5" height="36" rx="2.5" fill="#A78BFA"/>
-  <text x="726" y="336" font-size="11" font-weight="700" fill="#4C1D95" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">experiment_log.py</text>
-  <text x="726" y="354" font-size="9" fill="#6B7280">keep · discard · crash</text>
-  <g filter="url(#soft)"><rect x="700" y="376" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#4ADE80" stroke-width="2"/></g>
-  <rect x="710" y="386" width="5" height="36" rx="2.5" fill="#4ADE80"/>
-  <text x="726" y="398" font-size="11" font-weight="700" fill="#14532D" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">verify_citations.py</text>
-  <text x="726" y="416" font-size="9" fill="#6B7280">引用核验 → 幻觉率 HR</text>
-  <g filter="url(#soft)"><rect x="700" y="438" width="250" height="56" rx="12" fill="#FFFFFF" stroke="#F87171" stroke-width="2"/></g>
-  <rect x="710" y="448" width="5" height="36" rx="2.5" fill="#F87171"/>
-  <text x="726" y="460" font-size="11" font-weight="700" fill="#881337" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">audit_chain.py</text>
-  <text x="726" y="478" font-size="9" fill="#6B7280">五层审计 + 结果编造检查</text>
-  <!-- ===== (c) Fusion zone ===== -->
-  <rect x="60" y="526" width="910" height="88" rx="20" fill="#FFFFFF" fill-opacity="0.6" stroke="#C7CEDC" stroke-width="1.8" stroke-dasharray="7 5"/>
-  <circle cx="60" cy="526" r="12" fill="#64748B"/>
-  <text x="60" y="530" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">c</text>
-  <g filter="url(#soft)"><rect x="76" y="538" width="170" height="24" rx="12" fill="#DC2626"/></g>
-  <text x="161" y="554" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">🧬 agent 融合层 · FUSION</text>
-  <text x="258" y="555" font-size="9.5" fill="#94A3B8">模型+harness 借自 DSH · skill+经验+上下文+人格 我们提供</text>
+  <!-- ===== (b) tools ===== -->
+  <rect x="1180" y="140" width="560" height="600" rx="24" fill="#FFFFFF" fill-opacity="0.6" stroke="#C7CEDC" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="1180" cy="140" r="16" fill="#64748B"/>
+  <text x="1180" y="146" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">b</text>
+  <g filter="url(#soft)"><rect x="1200" y="160" width="280" height="34" rx="17" fill="#8FAADC"/></g>
+  <text x="1340" y="183" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">🧰 配套工具 · ZERO-DEP</text>
 
-  <g filter="url(#soft)"><rect x="76" y="572" width="190" height="32" rx="16" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/></g>
-  <text x="90" y="592" font-size="10.5" font-weight="700" fill="#B91C1C">🎭 科研模式 preset</text>
-  <text x="200" y="592" font-size="9" fill="#6B7280">人格烧进提示</text>
+  <!-- 6 tool cards 2col x3row -->
+  <g filter="url(#soft)"><rect x="1200" y="210" width="260" height="150" rx="14" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2.5"/></g>
+  <text x="1216" y="244" font-size="17" font-weight="700" fill="#1E3A8A" font-family="ui-monospace, Menlo, monospace">novelty_check</text>
+  <text x="1216" y="274" font-size="14" fill="#374151">查 arXiv 出候选清单</text>
+  <text x="1216" y="300" font-size="13" fill="#9CA3AF">三轮查新的第一步</text>
 
-  <g filter="url(#soft)"><rect x="276" y="572" width="165" height="32" rx="16" fill="#FFFFFF" stroke="#34D399" stroke-width="2"/></g>
-  <text x="290" y="592" font-size="10.5" font-weight="700" fill="#047857">📌 AGENTS.md</text>
-  <text x="380" y="592" font-size="9" fill="#6B7280">必读注入</text>
+  <g filter="url(#soft)"><rect x="1480" y="210" width="260" height="150" rx="14" fill="#FFFFFF" stroke="#38BDF8" stroke-width="2.5"/></g>
+  <text x="1496" y="244" font-size="17" font-weight="700" fill="#0C4A6E" font-family="ui-monospace, Menlo, monospace">novelty_report</text>
+  <text x="1496" y="274" font-size="14" fill="#374151">取证校验：读取程度标注</text>
+  <text x="1496" y="300" font-size="13" fill="#9CA3AF">缺标即 FAIL</text>
 
-  <g filter="url(#soft)"><rect x="451" y="572" width="165" height="32" rx="16" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/></g>
-  <text x="465" y="592" font-size="10.5" font-weight="700" fill="#1D4ED8">📖 SKILL.md</text>
-  <text x="552" y="592" font-size="9" fill="#6B7280">按需补全</text>
+  <g filter="url(#soft)"><rect x="1200" y="380" width="260" height="150" rx="14" fill="#FFFFFF" stroke="#34D399" stroke-width="2.5"/></g>
+  <text x="1216" y="414" font-size="17" font-weight="700" fill="#14532D" font-family="ui-monospace, Menlo, monospace">funnel</text>
+  <text x="1216" y="444" font-size="14" fill="#374151">选题漏斗 add / list</text>
+  <text x="1216" y="470" font-size="13" fill="#9CA3AF">narrow-watch 防窄化预警</text>
 
-  <g filter="url(#soft)"><rect x="626" y="572" width="175" height="32" rx="16" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2"/></g>
-  <text x="640" y="592" font-size="10.5" font-weight="700" fill="#6D28D9">🔄 AUTO_MODE</text>
-  <text x="735" y="592" font-size="9" fill="#6B7280">自动循环</text>
+  <g filter="url(#soft)"><rect x="1480" y="380" width="260" height="150" rx="14" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2.5"/></g>
+  <text x="1496" y="414" font-size="17" font-weight="700" fill="#4C1D95" font-family="ui-monospace, Menlo, monospace">experiment_log</text>
+  <text x="1496" y="444" font-size="14" fill="#374151">keep·discard·crash 汇总</text>
+  <text x="1496" y="470" font-size="13" fill="#9CA3AF">每跑一次记一笔</text>
 
-  <g filter="url(#soft)"><rect x="811" y="572" width="150" height="32" rx="16" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/></g>
-  <text x="825" y="592" font-size="10.5" font-weight="700" fill="#334155">⚡ install.sh</text>
-  <text x="905" y="592" font-size="9" fill="#6B7280">一键装</text>
+  <g filter="url(#soft)"><rect x="1200" y="550" width="260" height="150" rx="14" fill="#FFFFFF" stroke="#4ADE80" stroke-width="2.5"/></g>
+  <text x="1216" y="584" font-size="17" font-weight="700" fill="#14532D" font-family="ui-monospace, Menlo, monospace">verify_citations</text>
+  <text x="1216" y="614" font-size="14" fill="#374151">引用核验 → 幻觉率 HR</text>
+  <text x="1216" y="640" font-size="13" fill="#9CA3AF">投稿前必过</text>
 
-  <!-- ===== Palette strip ===== -->
-  <text x="60" y="640" font-size="10" font-weight="700" fill="#94A3B8" letter-spacing="2">PALETTE</text>
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#FFFFFF">
-    <rect x="60"  y="650" width="140" height="26" rx="7" fill="#34D399"/><text x="70" y="667">造现象</text><text x="130" y="667" fill="#D1FAE5">#34D399</text>
-    <rect x="208" y="650" width="140" height="26" rx="7" fill="#22D3EE"/><text x="218" y="667">找规律</text><text x="278" y="667" fill="#CFFAFE">#22D3EE</text>
-    <rect x="356" y="650" width="140" height="26" rx="7" fill="#FBBF24"/><text x="366" y="667">反推</text><text x="416" y="667" fill="#FEF3C7">#FBBF24</text>
-    <rect x="504" y="650" width="140" height="26" rx="7" fill="#60A5FA"/><text x="514" y="667">查新</text><text x="564" y="667" fill="#DBEAFE">#60A5FA</text>
-    <rect x="652" y="650" width="140" height="26" rx="7" fill="#A78BFA"/><text x="662" y="667">验证</text><text x="712" y="667" fill="#EDE9FE">#A78BFA</text>
-    <rect x="800" y="650" width="140" height="26" rx="7" fill="#94A3B8"/><text x="810" y="667">审计</text><text x="860" y="667" fill="#F1F5F9">#94A3B8</text>
+  <g filter="url(#soft)"><rect x="1480" y="550" width="260" height="150" rx="14" fill="#FFFFFF" stroke="#F87171" stroke-width="2.5"/></g>
+  <text x="1496" y="584" font-size="17" font-weight="700" fill="#881337" font-family="ui-monospace, Menlo, monospace">audit_chain</text>
+  <text x="1496" y="614" font-size="14" fill="#374151">五层审计 + 结果编造检查</text>
+  <text x="1496" y="640" font-size="13" fill="#9CA3AF">verify-results 数值锚点</text>
+
+  <!-- ===== (c) fusion ===== -->
+  <rect x="60" y="780" width="1680" height="220" rx="24" fill="#FFFFFF" fill-opacity="0.6" stroke="#C7CEDC" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="60" cy="780" r="16" fill="#64748B"/>
+  <text x="60" y="786" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">c</text>
+  <g filter="url(#soft)"><rect x="80" y="800" width="280" height="34" rx="17" fill="#DC2626"/></g>
+  <text x="220" y="823" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">🧬 agent 融合层 · FUSION</text>
+  <text x="380" y="823" font-size="15" fill="#94A3B8">模型 + harness 借自 DSH · skill + 经验 + 上下文 + 人格 我们提供</text>
+
+  <g filter="url(#soft)"><rect x="76" y="850" width="310" height="130" rx="16" fill="#FFFFFF" stroke="#DC2626" stroke-width="2.5"/></g>
+  <text x="94" y="884" font-size="19" font-weight="700" fill="#B91C1C">🎭 科研模式 preset</text>
+  <text x="94" y="914" font-size="14" fill="#374151">人格「科研侦探」烧进系统提示</text>
+  <text x="94" y="940" font-size="14" fill="#374151">选模式即成科研 agent</text>
+  <text x="94" y="964" font-size="13" fill="#9CA3AF">不靠自觉加载 skill</text>
+
+  <g filter="url(#soft)"><rect x="406" y="850" width="310" height="130" rx="16" fill="#FFFFFF" stroke="#34D399" stroke-width="2.5"/></g>
+  <text x="424" y="884" font-size="19" font-weight="700" fill="#047857">📌 AGENTS.md</text>
+  <text x="424" y="914" font-size="14" fill="#374151">33 行核心纪律</text>
+  <text x="424" y="940" font-size="14" fill="#374151">每次请求自动注入</text>
+  <text x="424" y="964" font-size="13" fill="#9CA3AF">必读兜底，不漏触发</text>
+
+  <g filter="url(#soft)"><rect x="736" y="850" width="310" height="130" rx="16" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2.5"/></g>
+  <text x="754" y="884" font-size="19" font-weight="700" fill="#1D4ED8">📖 SKILL.md</text>
+  <text x="754" y="914" font-size="14" fill="#374151">389 行完整方法论</text>
+  <text x="754" y="940" font-size="14" fill="#374151">7 条实战教训</text>
+  <text x="754" y="964" font-size="13" fill="#9CA3AF">按需加载补全细节</text>
+
+  <g filter="url(#soft)"><rect x="1066" y="850" width="310" height="130" rx="16" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2.5"/></g>
+  <text x="1084" y="884" font-size="19" font-weight="700" fill="#6D28D9">🔄 AUTO_MODE</text>
+  <text x="1084" y="914" font-size="14" fill="#374151">goal + schedule 拼出循环</text>
+  <text x="1084" y="940" font-size="14" fill="#374151">门前降级为记 PENDING</text>
+  <text x="1084" y="964" font-size="13" fill="#9CA3AF">投稿门永不降级</text>
+
+  <g filter="url(#soft)"><rect x="1396" y="850" width="310" height="130" rx="16" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2.5"/></g>
+  <text x="1414" y="884" font-size="19" font-weight="700" fill="#334155">⚡ install.sh</text>
+  <text x="1414" y="914" font-size="14" fill="#374151">一键安装</text>
+  <text x="1414" y="940" font-size="14" fill="#374151">自动检测五个平台</text>
+  <text x="1414" y="964" font-size="13" fill="#9CA3AF">--dry-run 可预览</text>
+
+  <!-- palette -->
+  <text x="60" y="1040" font-size="16" font-weight="700" fill="#94A3B8" letter-spacing="3">PALETTE</text>
+  <g font-size="16" font-weight="700" fill="#FFFFFF">
+    <rect x="60" y="1056" width="260" height="44" rx="10" fill="#34D399"/><text x="78" y="1084">造现象</text><text x="180" y="1084" fill="#D1FAE5">#34D399</text>
+    <rect x="340" y="1056" width="260" height="44" rx="10" fill="#22D3EE"/><text x="358" y="1084">找规律</text><text x="460" y="1084" fill="#CFFAFE">#22D3EE</text>
+    <rect x="620" y="1056" width="260" height="44" rx="10" fill="#FBBF24"/><text x="638" y="1084">反推</text><text x="740" y="1084" fill="#FEF3C7">#FBBF24</text>
+    <rect x="900" y="1056" width="260" height="44" rx="10" fill="#60A5FA"/><text x="918" y="1084">查新</text><text x="1020" y="1084" fill="#DBEAFE">#60A5FA</text>
+    <rect x="1180" y="1056" width="260" height="44" rx="10" fill="#A78BFA"/><text x="1198" y="1084">验证</text><text x="1300" y="1084" fill="#EDE9FE">#A78BFA</text>
+    <rect x="1460" y="1056" width="260" height="44" rx="10" fill="#94A3B8"/><text x="1478" y="1084">审计</text><text x="1580" y="1084" fill="#F1F5F9">#94A3B8</text>
   </g>
 
-  <!-- ===== Platform bar ===== -->
-  <g filter="url(#soft)"><rect x="60" y="690" width="910" height="40" rx="20" fill="url(#bar)"/></g>
-  <text x="515" y="715" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">🤖 Claude Code · Codex · Cursor · opencode · DeepSeek Harness</text>
+  <!-- platform bar -->
+  <g filter="url(#soft)"><rect x="60" y="1130" width="1680" height="64" rx="32" fill="url(#bar)"/></g>
+  <text x="900" y="1170" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">🤖 Claude Code · Codex · Cursor · opencode · DeepSeek Harness</text>
 </svg>
