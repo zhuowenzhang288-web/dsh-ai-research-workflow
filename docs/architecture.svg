@@ -80,35 +80,40 @@
   <rect x="94" y="121" width="40" height="6.5" rx="3.25" fill="#6EE7B7"/>
   <text x="94" y="148" font-size="13.5" font-weight="700" fill="#047857">🧫 造现象</text>
   <text x="94" y="166" font-size="9.5" fill="#6B7280">小系统 · 海量秒级实验</text>
-  <rect x="94"  y="178" width="13" height="11" rx="2" fill="#34D399" opacity="0.85"/>
-  <rect x="112" y="178" width="13" height="11" rx="2" fill="#22D3EE" opacity="0.7"/>
-  <rect x="130" y="178" width="13" height="11" rx="2" fill="#FBBF24" opacity="0.8"/>
-  <rect x="148" y="178" width="13" height="11" rx="2" fill="#A78BFA" opacity="0.7"/>
-  <rect x="166" y="178" width="13" height="11" rx="2" fill="#94A3B8" opacity="0.6"/>
-  <rect x="103" y="194" width="13" height="11" rx="2" fill="#F87171" opacity="0.6"/>
-  <rect x="121" y="194" width="13" height="11" rx="2" fill="#34D399" opacity="0.5"/>
-  <rect x="139" y="194" width="13" height="11" rx="2" fill="#22D3EE" opacity="0.55"/>
-  <rect x="157" y="194" width="13" height="11" rx="2" fill="#FBBF24" opacity="0.5"/>
-  <text x="196" y="204" font-size="8.5" fill="#9CA3AF">n≈500</text>
+  <rect x="94" y="178" width="12" height="10" rx="2" fill="#34D399" opacity="0.85"/>
+  <rect x="110" y="178" width="12" height="10" rx="2" fill="#34D399" opacity="0.6"/>
+  <rect x="126" y="178" width="12" height="10" rx="2" fill="#22D3EE" opacity="0.7"/>
+  <rect x="94" y="192" width="12" height="10" rx="2" fill="#FBBF24" opacity="0.75"/>
+  <rect x="110" y="192" width="12" height="10" rx="2" fill="#34D399" opacity="0.45"/>
+  <rect x="126" y="192" width="12" height="10" rx="2" fill="#F87171" opacity="0.55"/>
+  <text x="92" y="215" font-size="7.5" fill="#9CA3AF">n≈500 runs</text>
+  <text x="152" y="183" font-size="8" fill="#047857">预注册 ✓</text>
+  <text x="152" y="195" font-size="8" fill="#047857">四关 A1-A4 ✓</text>
+  <text x="152" y="207" font-size="8" fill="#047857">管道验证 ✓</text>
 
   <!-- c2 找规律 -->
   <g filter="url(#soft)"><rect x="285" y="110" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#22D3EE" stroke-width="2"/></g>
   <rect x="299" y="121" width="40" height="6.5" rx="3.25" fill="#67E8F9"/>
   <text x="299" y="148" font-size="13.5" font-weight="700" fill="#0E7490">🔍 找规律</text>
   <text x="299" y="166" font-size="9.5" fill="#6B7280">普遍成立 → 公式化</text>
-  <polyline points="299,206 325,186 351,194 377,174 403,164" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="403" cy="164" r="3.5" fill="#22D3EE"/>
-  <text x="407" y="206" font-size="11" fill="#0E7490" font-family="Georgia, serif" font-style="italic">τ(β,λ)</text>
+  <polyline points="299,196 321,184 343,189 365,176 387,171" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="299,204 321,199 343,204 365,196 387,199" fill="none" stroke="#F87171" stroke-width="1.5" stroke-dasharray="3 3" stroke-linecap="round"/>
+  <circle cx="387" cy="171" r="3.5" fill="#22D3EE"/>
+  <text x="393" y="182" font-size="10.5" fill="#0E7490" font-family="Georgia, serif" font-style="italic">τ(β,λ)</text>
+  <text x="299" y="215" font-size="7.5" fill="#0E7490">全条件成立 ✓ 剔除不稳定 ✗</text>
 
   <!-- c3 反推 idea -->
   <g filter="url(#soft)"><rect x="480" y="110" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#FBBF24" stroke-width="2"/></g>
   <rect x="494" y="121" width="40" height="6.5" rx="3.25" fill="#FCD34D"/>
   <text x="494" y="148" font-size="13" font-weight="700" fill="#B45309">💡 规律反推 idea</text>
   <text x="494" y="166" font-size="9.5" fill="#6B7280">现象驱动 · 不凭空想</text>
-  <text x="494" y="205" font-size="19" fill="#D1D5DB" font-weight="700">?</text>
-  <text x="516" y="203" font-size="13" fill="#FBBF24" font-weight="700">→</text>
-  <text x="538" y="205" font-size="17">💡</text>
-  <text x="568" y="202" font-size="13" opacity="0.7">✨</text>
+  <rect x="494" y="176" width="44" height="20" rx="10" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="516" y="190" text-anchor="middle" font-size="8.5" font-weight="700" fill="#B45309">现象 ①</text>
+  <rect x="544" y="176" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="566" y="190" text-anchor="middle" font-size="8.5" font-weight="700" fill="#64748B">文献 ②</text>
+  <rect x="594" y="176" width="44" height="20" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2" stroke-dasharray="3 2"/>
+  <text x="616" y="190" text-anchor="middle" font-size="8.5" fill="#9CA3AF">凭空 ③</text>
+  <text x="494" y="211" font-size="7.5" fill="#B45309">优先用规律 · 凭空想=高概率白做</text>
 
   <!-- arrows row1 + S -->
   <line x1="242" y1="165" x2="281" y2="165" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
@@ -128,7 +133,9 @@
   <text x="552" y="378" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1D4ED8">R2</text>
   <circle cx="588" cy="374" r="12" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.8"/>
   <text x="588" y="378" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1D4ED8">R3</text>
-  <text x="494" y="396" font-size="8.5" fill="#9CA3AF">相同问题 · 相同方法 · 相邻领域</text>
+  <text x="494" y="394" font-size="7.5" fill="#1D4ED8">相同问题·相同方法·相邻领域</text>
+  <rect x="586" y="352" width="54" height="15" rx="7.5" fill="#FEF2F2" stroke="#F87171" stroke-width="1.2"/>
+  <text x="613" y="363" text-anchor="middle" font-size="7.5" font-weight="700" fill="#B91C1C">只读摘要✗</text>
 
   <!-- c5 上卡验证 -->
   <g filter="url(#soft)"><rect x="285" y="290" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#A78BFA" stroke-width="2"/></g>
@@ -141,6 +148,10 @@
   <line x1="303" y1="396" x2="382" y2="396" stroke="#CBD5E1" stroke-width="1.5"/>
   <text x="389" y="381" font-size="8" fill="#9CA3AF">keep</text>
   <text x="389" y="394" font-size="8" fill="#9CA3AF">discard</text>
+  <line x1="310" y1="356" x2="310" y2="366" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="310" y="353" font-size="8" fill="#B45309">🚩基线</text>
+  <rect x="356" y="352" width="30" height="13" rx="6.5" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+  <text x="371" y="362" text-anchor="middle" font-size="7" fill="#1D4ED8">⏱预算</text>
 
   <!-- c6 写作审计 -->
   <g filter="url(#soft)"><rect x="80" y="290" width="160" height="110" rx="16" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/></g>
@@ -149,12 +160,17 @@
   <text x="94" y="346" font-size="9.5" fill="#6B7280">story→paper · 五层链</text>
   <rect x="96"  y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
   <text x="98" y="372" font-size="9" fill="#059669">✓</text>
-  <rect x="122" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
-  <text x="124" y="372" font-size="9" fill="#059669">✓</text>
-  <rect x="148" y="362" width="13" height="13" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="174" y="362" width="13" height="13" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
-  <rect x="200" y="362" width="13" height="13" rx="3" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
-  <text x="96" y="392" font-size="8.5" fill="#9CA3AF">诚实 · 一致 · 如实 · 引用 · 反驳</text>
+  <rect x="118" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
+  <text x="120" y="372" font-size="9" fill="#059669">✓</text>
+  <rect x="140" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
+  <text x="142" y="372" font-size="9" fill="#059669">✓</text>
+  <rect x="162" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
+  <text x="164" y="372" font-size="9" fill="#059669">✓</text>
+  <rect x="184" y="362" width="13" height="13" rx="3" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>
+  <text x="186" y="372" font-size="9" fill="#059669">✓</text>
+  <circle cx="222" cy="368" r="10" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="222" y="371" text-anchor="middle" font-size="7" font-weight="700" fill="#DC2626">FAIL</text>
+  <text x="96" y="392" font-size="7.5" fill="#9CA3AF">诚·证·数·引·驳 全 PASS · 任一 FAIL 阻断</text>
 
   <!-- arrows row2 -->
   <line x1="478" y1="345" x2="449" y2="345" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
