@@ -43,11 +43,6 @@ install_bundle /path/to/dsh-research-agent/research-preset
 
 方法论本体（SKILL.md + scripts）不绑 DSH，Claude Code / Codex / Cursor / opencode 均可用，见主仓 [ai-research-workflow](https://github.com/zhuowenzhang288-web/ai-research-workflow)。本仓是它的 **DSH 完整融合版**。
 
-## 评测与分工
-
-- 方法质量的 A/B 证据在主仓（skill 内容效应），本仓继承同一份 SKILL.md，不重复评测。
-- 本仓额外提供的 preset/人格/自动循环，解决"纪律保证在场"的可靠性问题，该部分尚未单独评测。
-
 ## License
 
 MIT
