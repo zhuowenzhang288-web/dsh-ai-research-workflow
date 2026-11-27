@@ -41,7 +41,7 @@ STAGES = {
 }
 
 # ── 版式 ──────────────────────────────────────────────────
-W = 2760
+W = 2010
 MARGIN = 70
 PAD = 28
 TITLE_Y = 58
@@ -182,34 +182,64 @@ def build(target):
     svg.text(W / 2, TITLE_Y, title, size=32, fill=INK, weight="800", anchor="middle")
     svg.text(W / 2, SUB_Y, subtitle, size=14, fill="#64748B", anchor="middle")
 
-    # ── (a) 七卡一行 ──────────────────────────────────────────
-    y = ROW_Y
-    n = 8
-    card_w = (inner - (n - 1) * CARD_GAP) / n
-    cards = [
+    # ── 顶部黑色横幅：8 步流程 ──────────────────────────────
+    banner_y = SUB_Y + 28
+    banner_h = 64
+    svg.rect(MARGIN, banner_y, inner, banner_h, fill="#0F172A", r=12)
+    steps = ["立项确认", "找实验模板", "造现象", "找规律", "反推 idea", "三轮查新", "上卡验证", "五层审计"]
+    colors = ["#FDE68A", "#93C5FD", "#6EE7B7", "#67E8F9", "#FCD34D", "#93C5FD", "#C4B5FD", "#CBD5E1"]
+    n = len(steps)
+    seg = (inner - 60) / n
+    for i, (t, c) in enumerate(zip(steps, colors)):
+        cx = MARGIN + 30 + i * seg
+        svg.circle(cx + 8, banner_y + banner_h / 2, 11, c)
+        svg.text(cx + 8, banner_y + banner_h / 2 + 5, str(i), size=12, fill="#0F172A", weight="700", anchor="middle")
+        svg.text(cx + 26, banner_y + banner_h / 2 + 5, t, size=13, fill="#F1F5F9", weight="600")
+        if i < n - 1:
+            svg.text(cx + seg - 18, banner_y + banner_h / 2 + 5, "→", size=14, fill="#475569", anchor="middle")
+
+    # ── (a) 两排：第一排 5 张，第二排 3 张 ────────────────────
+    y = ROW_Y + 80
+    card_w = 330
+    row1 = [
         ("brief",  "立项确认",    ["先问清：方向·算力", "时间·目标", "project_brief.py"], "第 0 步 · 先于一切"),
         ("novel",  "找实验模板",   ["arXiv 找已发表论文", "看别人怎么做实验", "venue_probe.py"], "不限顶会 · 拿模板再扫"),
         ("make",   "造现象",      ["小系统 0.1–4M 参数", "几百个秒级实验", "预注册 · 异常四关"], "先看模板 再动手"),
         ("law",    "找规律",      ["全条件成立才保留", "公式化 τ(β,λ)", "剔除不稳定"], None),
         ("idea",   "反推 idea",   ["现象 ① / 文献 ②", "凭空 ③ 是最后手段", "规律→解释→idea"], None),
-        ("novel",  "三轮查新",    ["读正文 · 三路核查", "摘要不得下判定", "R1 同问题 R2 同方法"], None),
-        ("verify", "上卡验证",    ["固定预算 · 基线先行", "评测只读", "keep·discard·crash"], None),
-        ("audit",  "五层审计",    ["诚·证·数·引·驳", "全 PASS 才出稿", "任一 FAIL 即阻断"], None),
     ]
-    xs = []
+    row2 = [
+        ("audit",  "五层审计",    ["诚·证·数·引·驳", "全 PASS 才出稿", "任一 FAIL 即阻断"], None),
+        ("verify", "上卡验证",    ["固定预算 · 基线先行", "评测只读", "keep·discard·crash"], None),
+        ("novel",  "三轮查新",    ["读正文 · 三路核查", "摘要不得下判定", "R1 同问题 R2 同方法"], None),
+    ]
+    # 第一排 5 张
     x = MARGIN
-    for i, (key, t, lines, foot) in enumerate(cards):
-        xs.append(x)
+    xs1 = []
+    for key, t, lines, foot in row1:
+        xs1.append(x)
         stage_card(svg, x, y, card_w, CARD_H, key, t, lines, foot)
-        x += card_w + CARD_GAP
+        x += card_w + 40
+    mid1 = y + CARD_H / 2
+    for i in range(len(row1) - 1):
+        svg.arrow(xs1[i] + card_w + 3, mid1, xs1[i + 1] - 3, mid1)
+    svg.arrow(MARGIN - 12, mid1, MARGIN - 3, mid1)   # 竖条 → 立项
 
-    mid = y + CARD_H / 2
-    for i in range(n - 1):
-        svg.arrow(xs[i] + card_w + 3, mid, xs[i + 1] - 3, mid)
+    # 第二排 3 张（左对齐）
+    y2 = y + CARD_H + 40
+    xs2 = []
+    x = MARGIN
+    for key, t, lines, foot in row2:
+        xs2.append(x)
+        stage_card(svg, x, y2, card_w, CARD_H, key, t, lines, foot)
+        x += card_w + 40
+    mid2 = y2 + CARD_H / 2
+    for i in range(len(row2) - 1):
+        svg.arrow(xs2[i] + card_w + 3, mid2, xs2[i + 1] - 3, mid2)
 
     # ── (b) 查新分支面板 ─────────────────────────────────────
     py = y + CARD_H + PANEL_Y_GAP
-    nx = xs[5]  # 三轮查新
+    nx = xs1[4]  # 三轮查新在第一排最右
     svg.text(nx - 2, py - 8, "(b)", size=12, fill=MUTED, weight="600")
     panel_w = card_w * 2 + CARD_GAP
     svg.shadow(nx, py, panel_w, PANEL_H, r=10)
