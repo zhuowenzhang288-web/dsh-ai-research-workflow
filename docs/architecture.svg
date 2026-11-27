@@ -1,88 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 672" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 638" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif">
 <defs><marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/></marker><marker id="headRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#DC2626"/></marker></defs>
-<rect width="1600" height="672" fill="#FFFFFF"/>
-<text x="800" y="58" font-size="30" fill="#0F172A" font-weight="700" text-anchor="middle">DSH Research Agent</text>
-<text x="800" y="92" font-size="14" fill="#94A3B8" text-anchor="middle">现象驱动的科研工作流 · 装上即用，纪律常驻</text>
-<text x="66" y="140" font-size="13" fill="#94A3B8" font-weight="600">(a)</text>
-<rect x="70" y="178" width="132" height="76" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6" stroke-dasharray="4 3"/>
-<text x="136" y="202" font-size="12" fill="#64748B" font-weight="600" text-anchor="middle">第 0 步</text>
-<text x="136" y="222" font-size="14" fill="#0F172A" font-weight="600" text-anchor="middle">立项确认</text>
-<text x="136" y="242" font-size="10.5" fill="#94A3B8" text-anchor="middle">方向·算力·时间</text>
-<rect x="224" y="150" width="199.333" height="132" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="1.6"/>
-<rect x="238" y="164" width="171.333" height="3" rx="1.5" fill="#059669"/>
-<text x="242" y="194" font-size="17" fill="#0F172A" font-weight="600">造现象</text>
-<text x="242" y="220" font-size="12.5" fill="#334155">小系统 0.1–4M 参数</text>
-<text x="242" y="240" font-size="12.5" fill="#334155">预注册 · 异常四关</text>
-<text x="242" y="268" font-size="11" fill="#94A3B8">先看已发表论文怎么做</text>
-<rect x="445.333" y="150" width="199.333" height="132" rx="10" fill="#ECFEFF" stroke="#0891B2" stroke-width="1.6"/>
-<rect x="459.333" y="164" width="171.333" height="3" rx="1.5" fill="#0891B2"/>
-<text x="463.333" y="194" font-size="17" fill="#0F172A" font-weight="600">找规律</text>
-<text x="463.333" y="220" font-size="12.5" fill="#334155">全条件成立才保留</text>
-<text x="463.333" y="240" font-size="12.5" fill="#334155">公式化 τ(β,λ)</text>
-<rect x="666.667" y="150" width="199.333" height="132" rx="10" fill="#FFFBEB" stroke="#B45309" stroke-width="1.6"/>
-<rect x="680.667" y="164" width="171.333" height="3" rx="1.5" fill="#B45309"/>
-<text x="684.667" y="194" font-size="17" fill="#0F172A" font-weight="600">反推 idea</text>
-<text x="684.667" y="220" font-size="12.5" fill="#334155">现象 ① / 文献 ②</text>
-<text x="684.667" y="240" font-size="12.5" fill="#334155">凭空 ③ 是最后手段</text>
-<rect x="888" y="150" width="199.333" height="132" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.6"/>
-<rect x="902" y="164" width="171.333" height="3" rx="1.5" fill="#1D4ED8"/>
-<text x="906" y="194" font-size="17" fill="#0F172A" font-weight="600">三轮查新</text>
-<text x="906" y="220" font-size="12.5" fill="#334155">读正文 · 三路核查</text>
-<text x="906" y="240" font-size="12.5" fill="#334155">摘要不得下判定</text>
-<rect x="1109.33" y="150" width="199.333" height="132" rx="10" fill="#F5F3FF" stroke="#6D28D9" stroke-width="1.6"/>
-<rect x="1123.33" y="164" width="171.333" height="3" rx="1.5" fill="#6D28D9"/>
-<text x="1127.33" y="194" font-size="17" fill="#0F172A" font-weight="600">上卡验证</text>
-<text x="1127.33" y="220" font-size="12.5" fill="#334155">固定预算 · 基线先行</text>
-<text x="1127.33" y="240" font-size="12.5" fill="#334155">评测只读</text>
-<rect x="1330.67" y="150" width="199.333" height="132" rx="10" fill="#F8FAFC" stroke="#334155" stroke-width="1.6"/>
-<rect x="1344.67" y="164" width="171.333" height="3" rx="1.5" fill="#334155"/>
-<text x="1348.67" y="194" font-size="17" fill="#0F172A" font-weight="600">五层审计</text>
-<text x="1348.67" y="220" font-size="12.5" fill="#334155">诚·证·数·引·驳</text>
-<text x="1348.67" y="240" font-size="12.5" fill="#334155">全 PASS 才出稿</text>
-<line x1="204" y1="216" x2="220" y2="216" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
-<line x1="425.333" y1="216" x2="441.333" y2="216" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
-<line x1="646.667" y1="216" x2="662.667" y2="216" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
-<line x1="868" y1="216" x2="884" y2="216" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
-<line x1="1089.33" y1="216" x2="1105.33" y2="216" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
-<line x1="1310.67" y1="216" x2="1326.67" y2="216" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
-<path d="M 987.667 284 L 987.667 320" fill="none" stroke="#DC2626" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#head)"/>
-<text x="884" y="332" font-size="13" fill="#94A3B8" font-weight="600">(b)</text>
-<rect x="888" y="338" width="420.667" height="132" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.4"/>
-<text x="906" y="364" font-size="13" fill="#0F172A" font-weight="600">查新后的两个出口</text>
-<rect x="906" y="378" width="180.333" height="62" rx="7" fill="#FFFBEB" stroke="#D97706" stroke-width="1.3"/>
-<text x="918" y="400" font-size="12.5" fill="#92400E" font-weight="600">撞车 → 深挖新维度</text>
-<text x="918" y="420" font-size="11" fill="#78716C">换观测维度，不是把题目改窄</text>
-<rect x="1104.33" y="378" width="180.333" height="62" rx="7" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.3"/>
-<text x="1116.33" y="400" font-size="12.5" fill="#991B1B" font-weight="600">实质重复 → 淘汰</text>
-<text x="1116.33" y="420" font-size="11" fill="#78716C">记入漏斗，作反重复记忆</text>
-<text x="66" y="504" font-size="13" fill="#94A3B8" font-weight="600">(c)</text>
-<text x="70" y="526" font-size="13" fill="#0F172A" font-weight="600">配套工具</text>
-<text x="138" y="526" font-size="11.5" fill="#94A3B8">8 个 · 纯 Python 标准库 · 任何能跑 bash 的 agent 可用</text>
-<rect x="70" y="540" width="172" height="46" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
-<text x="80" y="559" font-size="9.5" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">project_brief</text>
-<text x="80" y="574" font-size="9.5" fill="#94A3B8">立项确认</text>
-<rect x="254" y="540" width="172" height="46" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
-<text x="264" y="559" font-size="9.5" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">venue_probe</text>
-<text x="264" y="574" font-size="9.5" fill="#94A3B8">实验模板</text>
-<rect x="438" y="540" width="172" height="46" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
-<text x="448" y="559" font-size="9.5" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_check</text>
-<text x="448" y="574" font-size="9.5" fill="#94A3B8">查候选</text>
-<rect x="622" y="540" width="172" height="46" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
-<text x="632" y="559" font-size="9.5" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_report</text>
-<text x="632" y="574" font-size="9.5" fill="#94A3B8">取证校验</text>
-<rect x="806" y="540" width="172" height="46" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
-<text x="816" y="559" font-size="9.5" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">funnel</text>
-<text x="816" y="574" font-size="9.5" fill="#94A3B8">选题漏斗</text>
-<rect x="990" y="540" width="172" height="46" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
-<text x="1000" y="559" font-size="9.5" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">experiment_log</text>
-<text x="1000" y="574" font-size="9.5" fill="#94A3B8">实验日志</text>
-<rect x="1174" y="540" width="172" height="46" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
-<text x="1184" y="559" font-size="9.5" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">verify_citations</text>
-<text x="1184" y="574" font-size="9.5" fill="#94A3B8">引用核验</text>
-<rect x="1358" y="540" width="172" height="46" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
-<text x="1368" y="559" font-size="9.5" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">audit_chain</text>
-<text x="1368" y="574" font-size="9.5" fill="#94A3B8">五层审计</text>
-<text x="66" y="622" font-size="13" fill="#94A3B8" font-weight="600">(d)</text>
-<text x="70" y="644" font-size="13" fill="#0F172A" font-weight="600">角色分工</text>
-<text x="138" y="644" font-size="11.5" fill="#94A3B8">模型与 agent 循环由 DeepSeek Harness 提供 ｜ 本包提供方法、8 个工具、人格与科研模式 preset</text>
+<rect width="1200" height="638" fill="#FFFFFF"/>
+<text x="600" y="50" font-size="26" fill="#0F172A" font-weight="700" text-anchor="middle">DSH Research Agent</text>
+<text x="600" y="78" font-size="13" fill="#94A3B8" text-anchor="middle">现象驱动的科研工作流 · 装上即用，纪律常驻</text>
+<text x="48" y="108" font-size="13" fill="#94A3B8" font-weight="600">(a)</text>
+<rect x="52" y="146" width="104" height="70" rx="8" fill="#F1F5F9" stroke="#64748B" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="104" y="164" font-size="11" fill="#64748B" font-weight="600" text-anchor="middle">第 0 步</text>
+<text x="104" y="184" font-size="13" fill="#0F172A" font-weight="600" text-anchor="middle">立项确认</text>
+<text x="104" y="204" font-size="9.5" fill="#94A3B8" text-anchor="middle">方向·算力·时间</text>
+<rect x="170" y="118" width="151.333" height="126" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="1.6"/>
+<rect x="182" y="130" width="127.333" height="3" rx="1.5" fill="#059669"/>
+<text x="184" y="162" font-size="15" fill="#0F172A" font-weight="600">造现象</text>
+<text x="184" y="186" font-size="11.5" fill="#334155">小系统 0.1–4M 参数</text>
+<text x="184" y="205" font-size="11.5" fill="#334155">预注册 · 异常四关</text>
+<text x="184" y="232" font-size="10" fill="#94A3B8">先看已发表论文怎么做</text>
+<rect x="335.333" y="118" width="151.333" height="126" rx="10" fill="#ECFEFF" stroke="#0891B2" stroke-width="1.6"/>
+<rect x="347.333" y="130" width="127.333" height="3" rx="1.5" fill="#0891B2"/>
+<text x="349.333" y="162" font-size="15" fill="#0F172A" font-weight="600">找规律</text>
+<text x="349.333" y="186" font-size="11.5" fill="#334155">全条件成立才保留</text>
+<text x="349.333" y="205" font-size="11.5" fill="#334155">公式化 τ(β,λ)</text>
+<rect x="500.667" y="118" width="151.333" height="126" rx="10" fill="#FFFBEB" stroke="#B45309" stroke-width="1.6"/>
+<rect x="512.667" y="130" width="127.333" height="3" rx="1.5" fill="#B45309"/>
+<text x="514.667" y="162" font-size="15" fill="#0F172A" font-weight="600">反推 idea</text>
+<text x="514.667" y="186" font-size="11.5" fill="#334155">现象 ① / 文献 ②</text>
+<text x="514.667" y="205" font-size="11.5" fill="#334155">凭空 ③ 是最后手段</text>
+<rect x="666" y="118" width="151.333" height="126" rx="10" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.6"/>
+<rect x="678" y="130" width="127.333" height="3" rx="1.5" fill="#1D4ED8"/>
+<text x="680" y="162" font-size="15" fill="#0F172A" font-weight="600">三轮查新</text>
+<text x="680" y="186" font-size="11.5" fill="#334155">读正文 · 三路核查</text>
+<text x="680" y="205" font-size="11.5" fill="#334155">摘要不得下判定</text>
+<rect x="831.333" y="118" width="151.333" height="126" rx="10" fill="#F5F3FF" stroke="#6D28D9" stroke-width="1.6"/>
+<rect x="843.333" y="130" width="127.333" height="3" rx="1.5" fill="#6D28D9"/>
+<text x="845.333" y="162" font-size="15" fill="#0F172A" font-weight="600">上卡验证</text>
+<text x="845.333" y="186" font-size="11.5" fill="#334155">固定预算 · 基线先行</text>
+<text x="845.333" y="205" font-size="11.5" fill="#334155">评测只读</text>
+<rect x="996.667" y="118" width="151.333" height="126" rx="10" fill="#F8FAFC" stroke="#334155" stroke-width="1.6"/>
+<rect x="1008.67" y="130" width="127.333" height="3" rx="1.5" fill="#334155"/>
+<text x="1010.67" y="162" font-size="15" fill="#0F172A" font-weight="600">五层审计</text>
+<text x="1010.67" y="186" font-size="11.5" fill="#334155">诚·证·数·引·驳</text>
+<text x="1010.67" y="205" font-size="11.5" fill="#334155">全 PASS 才出稿</text>
+<line x1="158" y1="181" x2="166" y2="181" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="323.333" y1="181" x2="331.333" y2="181" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="488.667" y1="181" x2="496.667" y2="181" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="654" y1="181" x2="662" y2="181" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="819.333" y1="181" x2="827.333" y2="181" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
+<line x1="984.667" y1="181" x2="992.667" y2="181" stroke="#94A3B8" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
+<path d="M 741.667 246 L 741.667 270" fill="none" stroke="#DC2626" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#head)"/>
+<text x="662" y="282" font-size="13" fill="#94A3B8" font-weight="600">(b)</text>
+<rect x="666" y="288" width="316.667" height="118" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.4"/>
+<text x="682" y="312" font-size="12" fill="#0F172A" font-weight="600">查新后的两个出口</text>
+<rect x="684" y="328" width="128.333" height="62" rx="7" fill="#FFFBEB" stroke="#D97706" stroke-width="1.3"/>
+<text x="694" y="346" font-size="11.5" fill="#92400E" font-weight="600">撞车 → 深挖新维度</text>
+<text x="694" y="364" font-size="10" fill="#78716C">换观测维度，不是把题目改窄</text>
+<rect x="830.333" y="328" width="128.333" height="62" rx="7" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.3"/>
+<text x="840.333" y="346" font-size="11.5" fill="#991B1B" font-weight="600">实质重复 → 淘汰</text>
+<text x="840.333" y="364" font-size="10" fill="#78716C">记入漏斗，作反重复记忆</text>
+<text x="48" y="430" font-size="13" fill="#94A3B8" font-weight="600">(c)</text>
+<text x="52" y="450" font-size="12" fill="#0F172A" font-weight="600">配套工具</text>
+<text x="120" y="452" font-size="10.5" fill="#94A3B8">8 个 · 纯 Python 标准库 · 任何能跑 bash 的 agent 可用</text>
+<rect x="52" y="466" width="263.5" height="44" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+<text x="64" y="485" font-size="11" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">project_brief</text>
+<text x="64" y="501" font-size="10.5" fill="#94A3B8">立项确认</text>
+<rect x="329.5" y="466" width="263.5" height="44" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+<text x="341.5" y="485" font-size="11" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">venue_probe</text>
+<text x="341.5" y="501" font-size="10.5" fill="#94A3B8">实验模板</text>
+<rect x="607" y="466" width="263.5" height="44" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+<text x="619" y="485" font-size="11" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_check</text>
+<text x="619" y="501" font-size="10.5" fill="#94A3B8">查候选</text>
+<rect x="884.5" y="466" width="263.5" height="44" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+<text x="896.5" y="485" font-size="11" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">novelty_report</text>
+<text x="896.5" y="501" font-size="10.5" fill="#94A3B8">取证校验</text>
+<rect x="52" y="522" width="263.5" height="44" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+<text x="64" y="541" font-size="11" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">funnel</text>
+<text x="64" y="557" font-size="10.5" fill="#94A3B8">选题漏斗</text>
+<rect x="329.5" y="522" width="263.5" height="44" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+<text x="341.5" y="541" font-size="11" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">experiment_log</text>
+<text x="341.5" y="557" font-size="10.5" fill="#94A3B8">实验日志</text>
+<rect x="607" y="522" width="263.5" height="44" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+<text x="619" y="541" font-size="11" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">verify_citations</text>
+<text x="619" y="557" font-size="10.5" fill="#94A3B8">引用核验</text>
+<rect x="884.5" y="522" width="263.5" height="44" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+<text x="896.5" y="541" font-size="11" fill="#0F172A" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">audit_chain</text>
+<text x="896.5" y="557" font-size="10.5" fill="#94A3B8">五层审计</text>
+<text x="48" y="588" font-size="13" fill="#94A3B8" font-weight="600">(d)</text>
+<text x="52" y="608" font-size="12" fill="#0F172A" font-weight="600">角色分工</text>
+<text x="120" y="610" font-size="10.5" fill="#94A3B8">模型与 agent 循环由 DeepSeek Harness 提供 ｜ 本包提供方法、8 个工具、人格与科研模式 preset</text>
 </svg>
