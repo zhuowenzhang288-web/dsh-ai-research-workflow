@@ -1,64 +1,58 @@
 #!/usr/bin/env python3
-"""gen_row7.py — 7 卡一行布局生成器（DSH Research Agent 架构图 v10）。
+"""gen_row7.py — DSH Research Agent 架构图。
 
-布局：
+布局（严格按需求）：
     标题 + 副标题
-    (a) 一行七卡：立项确认 → 造现象 → 找规律 → 反推 idea → 三轮查新 → 上卡验证 → 五层审计
-        每卡：白底 + 顶部色条 + 粗体标题 + 3-4 行短语 + 灰色脚注
-        卡间红色箭头
-    (b) 查新分支面板（挂在三轮查新下方）
-    (c) 工具区（8 个工具）
-    (d) 融合层 / 跨平台条
+    流程卡片：一行四个，两行共八个，行间用箭头连接，卡片互不遮挡
+        每卡：顶部色条 + 标题 + 3~4 行小细节 + 灰色脚注
+    查新分支面板（挂在"三轮查新"下方）
+    8 个工具
+    融合层 / 跨平台
     色卡 + 平台条
-
-风格延续 v9：奶油底 #FDFBF7、卡片 #FFFFFF + 顶部色条、红色 #F87171 箭头、阴影 #64748B。
 """
 import argparse
 import os
-import re
 
-# ── 配色（v9 风格）───────────────────────────────────────────
 BG = "#FDFBF7"
 INK = "#1E293B"
 SUB = "#374151"
 MUTED = "#9CA3AF"
 HAIR = "#C7CEDC"
 RED = "#DC2626"
-ACCENT = "#F87171"          # 箭头
+ACCENT = "#F87171"
 RED_DARK = "#7F1D1D"
 MONO = "ui-monospace, SFMono-Regular, Menlo, monospace"
 SANS = "-apple-system, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif"
 
-# 各阶段：key → (描边色, 标题色, 浅底色, 顶部色条色)
 STAGES = {
     "brief":  ("#94A3B8", "#334155", "#F8FAFC", "#CBD5E1"),
+    "novel":  ("#60A5FA", "#1D4ED8", "#FFFFFF", "#93C5FD"),
     "make":   ("#34D399", "#047857", "#FFFFFF", "#6EE7B7"),
     "law":    ("#22D3EE", "#0E7490", "#FFFFFF", "#67E8F9"),
     "idea":   ("#FBBF24", "#B45309", "#FFFFFF", "#FCD34D"),
-    "novel":  ("#60A5FA", "#1D4ED8", "#FFFFFF", "#93C5FD"),
     "verify": ("#A78BFA", "#6D28D9", "#FFFFFF", "#C4B5FD"),
     "audit":  ("#94A3B8", "#334155", "#FFFFFF", "#CBD5E1"),
 }
 
-# ── 版式 ──────────────────────────────────────────────────
-W = 2010
-MARGIN = 70
+W = 1560
+MARGIN = 60
 PAD = 28
-TITLE_Y = 58
-SUB_Y = 94
-ROW_Y = 136
-CARD_H = 200
-CARD_GAP = 16
-PANEL_Y_GAP = 48
-PANEL_H = 120
-TOOLS_Y_GAP = 34
-TOOL_H = 64
-TOOL_GAP = 12
-FUSION_Y_GAP = 34
-FUSION_H = 120
+TITLE_Y = 56
+SUB_Y = 90
+ROW_Y = 130
+CARD_H = 210
+CARD_GAP = 24
+ROW_GAP = 44
+PANEL_Y_GAP = 50
+PANEL_H = 110
+TOOLS_Y_GAP = 36
+TOOL_H = 66
+TOOL_GAP = 14
+FUSION_Y_GAP = 36
+FUSION_H = 110
 PAL_Y_GAP = 28
-PAL_H = 44
-BAR_H = 56
+PAL_H = 46
+BAR_H = 58
 
 
 class SVG:
@@ -68,10 +62,8 @@ class SVG:
     def add(self, s):
         self.o.append(s)
 
-    def rect(self, x, y, w, h, fill="#FFFFFF", stroke=None, sw=1.5, r=10, dash=None, fill_op=None):
+    def rect(self, x, y, w, h, fill="#FFFFFF", stroke=None, sw=1.5, r=10, dash=None):
         a = [f'x="{x:g}" y="{y:g}" width="{w:g}" height="{h:g}" rx="{r:g}" fill="{fill}"']
-        if fill_op is not None:
-            a.append(f'fill-opacity="{fill_op}"')
         if stroke:
             a.append(f'stroke="{stroke}" stroke-width="{sw:g}"')
         if dash:
@@ -83,7 +75,7 @@ class SVG:
         if weight:
             a.append(f'font-weight="{weight}"')
         if anchor:
-            a.append(f'text-anchor="{anchor}"')
+            a.append(f'ttext-anchor="{anchor}"'.replace("ttext", "text"))
         if mono:
             a.append(f'font-family="{MONO}"')
         self.add(f'<text {" ".join(a)}>{t}</text>')
@@ -94,20 +86,8 @@ class SVG:
     def arrow(self, x1, y1, x2, y2, color=ACCENT, sw=3):
         self.add(f'<line x1="{x1:g}" y1="{y1:g}" x2="{x2:g}" y2="{y2:g}" stroke="{color}" stroke-width="{sw:g}" stroke-linecap="round" marker-end="url(#arr)"/>')
 
-    def line(self, x1, y1, x2, y2, color=ACCENT, sw=2, dash=None):
-        a = [f'x1="{x1:g}" y1="{y1:g}" x2="{x2:g}" y2="{y2:g}" stroke="{color}" stroke-width="{sw:g}" stroke-linecap="round"']
-        if dash:
-            a.append(f'stroke-dasharray="{dash}"')
-        self.add(f'<line {" ".join(a)}/>')
-
     def path(self, d, color=ACCENT, sw=2):
         self.add(f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{sw:g}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)"/>')
-
-    def circle(self, cx, cy, r, fill, stroke=None, sw=0):
-        a = [f'cx="{cx:g}" cy="{cy:g}" r="{r:g}" fill="{fill}"']
-        if stroke:
-            a.append(f'stroke="{stroke}" stroke-width="{sw:g}"')
-        self.add(f'<circle {" ".join(a)}/>')
 
     def render(self):
         return "\n".join(self.o)
@@ -129,21 +109,21 @@ def stage_card(svg, x, y, w, h, key, title, lines, foot=None):
     svg.shadow(x, y, w, h)
     svg.rect(x, y, w, h, fill=tint, stroke=stroke, sw=1.8, r=12)
     svg.rect(x + 14, y + 13, w - 28, 5, fill=bar, r=2.5)
-    ty = y + 46
-    svg.text(x + 18, ty, title, size=17, fill=title_c, weight="700")
-    ly = ty + 24
+    ty = y + 44
+    svg.text(x + 16, ty, title, size=16, fill=title_c, weight="700")
+    ly = ty + 26
     for ln in lines:
-        svg.text(x + 18, ly, ln, size=12, fill=SUB)
-        ly += 20
+        svg.text(x + 16, ly, ln, size=12, fill=SUB)
+        ly += 21
     if foot:
-        svg.text(x + 18, y + h - 12, foot, size=10.5, fill=MUTED)
+        svg.text(x + 16, y + h - 12, foot, size=10.5, fill=MUTED)
 
 
 def tool_card(svg, x, y, w, h, name, use):
     svg.shadow(x, y, w, h, r=8)
     svg.rect(x, y, w, h, fill="#FFFFFF", stroke="#E2E8F0", sw=1.2, r=8)
     svg.text(x + 12, y + 24, name, size=12, fill=INK, weight="600", mono=True)
-    svg.text(x + 12, y + 44, use, size=10.5, fill=MUTED)
+    svg.text(x + 12, y + 45, use, size=10.5, fill=MUTED)
 
 
 def build(target):
@@ -179,87 +159,73 @@ def build(target):
             ("sync.sh", "三处副本检查", "--check 可进 CI", "#F59E0B"),
         ]
 
-    svg.text(W / 2, TITLE_Y, title, size=32, fill=INK, weight="800", anchor="middle")
-    svg.text(W / 2, SUB_Y, subtitle, size=14, fill="#64748B", anchor="middle")
+    svg.text(W / 2, TITLE_Y, title, size=30, fill=INK, weight="800", anchor="middle")
+    svg.text(W / 2, SUB_Y, subtitle, size=13.5, fill="#64748B", anchor="middle")
 
-    # ── 顶部黑色横幅：8 步流程 ──────────────────────────────
-    banner_y = SUB_Y + 28
-    banner_h = 64
-    svg.rect(MARGIN, banner_y, inner, banner_h, fill="#0F172A", r=12)
-    steps = ["立项确认", "找实验模板", "造现象", "找规律", "反推 idea", "三轮查新", "上卡验证", "五层审计"]
-    colors = ["#FDE68A", "#93C5FD", "#6EE7B7", "#67E8F9", "#FCD34D", "#93C5FD", "#C4B5FD", "#CBD5E1"]
-    n = len(steps)
-    seg = (inner - 60) / n
-    for i, (t, c) in enumerate(zip(steps, colors)):
-        cx = MARGIN + 30 + i * seg
-        svg.circle(cx + 8, banner_y + banner_h / 2, 11, c)
-        svg.text(cx + 8, banner_y + banner_h / 2 + 5, str(i), size=12, fill="#0F172A", weight="700", anchor="middle")
-        svg.text(cx + 26, banner_y + banner_h / 2 + 5, t, size=13, fill="#F1F5F9", weight="600")
-        if i < n - 1:
-            svg.text(cx + seg - 18, banner_y + banner_h / 2 + 5, "→", size=14, fill="#475569", anchor="middle")
-
-    # ── (a) 两排：第一排 5 张，第二排 3 张 ────────────────────
-    y = ROW_Y + 80
-    card_w = 330
+    # ── 流程卡片：一行四个，两行 ────────────────────────────
+    card_w = (inner - 3 * CARD_GAP) / 4
+    y = ROW_Y
     row1 = [
-        ("brief",  "立项确认",    ["先问清：方向·算力", "时间·目标", "project_brief.py"], "第 0 步 · 先于一切"),
-        ("novel",  "找实验模板",   ["arXiv 找已发表论文", "看别人怎么做实验", "venue_probe.py"], "不限顶会 · 拿模板再扫"),
-        ("make",   "造现象",      ["小系统 0.1–4M 参数", "几百个秒级实验", "预注册 · 异常四关"], "先看模板 再动手"),
-        ("law",    "找规律",      ["全条件成立才保留", "公式化 τ(β,λ)", "剔除不稳定"], None),
-        ("idea",   "反推 idea",   ["现象 ① / 文献 ②", "凭空 ③ 是最后手段", "规律→解释→idea"], None),
+        ("brief",  "立项确认",    ["先问清：方向·算力", "时间·目标·成功标准", "project_brief.py", "算力/时间不够先停"], "第 0 步 · 先于一切"),
+        ("novel",  "找实验模板",   ["arXiv 找已发表论文", "看别人怎么做实验", "venue_probe.py", "拿模板再动手"], "不限顶会 · 先模板后扫"),
+        ("make",   "造现象",      ["小系统 0.1–4M 参数", "几百个秒级实验", "预注册 · 异常四关", "先看模板再动手"], "先看已发表论文怎么做"),
+        ("law",    "找规律",      ["每批追问有无规律", "全条件成立才保留", "公式化 τ(β,λ)", "剔除不稳定"], None),
     ]
     row2 = [
-        ("audit",  "五层审计",    ["诚·证·数·引·驳", "全 PASS 才出稿", "任一 FAIL 即阻断"], None),
-        ("verify", "上卡验证",    ["固定预算 · 基线先行", "评测只读", "keep·discard·crash"], None),
+        ("idea",   "反推 idea",   ["现象 ① / 文献 ②", "凭空 ③ 是最后手段", "规律→解释→idea"], None),
         ("novel",  "三轮查新",    ["读正文 · 三路核查", "摘要不得下判定", "R1 同问题 R2 同方法"], None),
+        ("verify", "上卡验证",    ["固定预算 · 基线先行", "评测只读", "keep·discard·crash"], None),
+        ("audit",  "五层审计",    ["诚·证·数·引·驳", "全 PASS 才出稿", "任一 FAIL 即阻断"], None),
     ]
-    # 第一排 5 张
+
+    # 第一行
     x = MARGIN
     xs1 = []
     for key, t, lines, foot in row1:
         xs1.append(x)
         stage_card(svg, x, y, card_w, CARD_H, key, t, lines, foot)
-        x += card_w + 40
+        x += card_w + CARD_GAP
     mid1 = y + CARD_H / 2
-    for i in range(len(row1) - 1):
+    svg.arrow(MARGIN - 14, mid1, MARGIN - 3, mid1)
+    for i in range(3):
         svg.arrow(xs1[i] + card_w + 3, mid1, xs1[i + 1] - 3, mid1)
-    svg.arrow(MARGIN - 12, mid1, MARGIN - 3, mid1)   # 竖条 → 立项
 
-    # 第二排 3 张（左对齐）
-    y2 = y + CARD_H + 40
+    # 第二行
+    y2 = y + CARD_H + ROW_GAP
     xs2 = []
     x = MARGIN
     for key, t, lines, foot in row2:
         xs2.append(x)
         stage_card(svg, x, y2, card_w, CARD_H, key, t, lines, foot)
-        x += card_w + 40
+        x += card_w + CARD_GAP
     mid2 = y2 + CARD_H / 2
-    for i in range(len(row2) - 1):
+    for i in range(3):
         svg.arrow(xs2[i] + card_w + 3, mid2, xs2[i + 1] - 3, mid2)
+    # 第一行最后一张 → 第二行第一张
+    svg.path(f"M {xs1[3] + card_w / 2:g} {y + CARD_H + 2:g} L {xs1[3] + card_w / 2:g} {y2 - 2:g}")
 
-    # ── (b) 查新分支面板 ─────────────────────────────────────
-    py = y + CARD_H + PANEL_Y_GAP
-    nx = xs1[4]  # 三轮查新在第一排最右
+    # ── 查新分支面板 ─────────────────────────────────────
+    py = y2 + CARD_H + PANEL_Y_GAP
+    nx = xs2[1]  # 三轮查新
     svg.text(nx - 2, py - 8, "(b)", size=12, fill=MUTED, weight="600")
     panel_w = card_w * 2 + CARD_GAP
     svg.shadow(nx, py, panel_w, PANEL_H, r=10)
     svg.rect(nx, py, panel_w, PANEL_H, fill="#FFFFFF", stroke=HAIR, sw=1.4, r=10)
     svg.text(nx + 16, py + 24, "查新后的两个出口", size=13, fill=INK, weight="600")
     ew = (panel_w - 32 - 12) / 2
-    svg.rect(nx + 16, py + 38, ew, 62, fill="#FFFBEB", stroke="#D97706", sw=1.2, r=7)
+    svg.rect(nx + 16, py + 38, ew, 58, fill="#FFFBEB", stroke="#D97706", sw=1.2, r=7)
     svg.text(nx + 26, py + 60, "撞车 → 深挖新维度", size=12, fill="#92400E", weight="600")
-    svg.text(nx + 26, py + 80, "换观测维度，不是把题目改窄", size=10.5, fill="#78716C")
-    svg.rect(nx + 28 + ew, py + 38, ew, 62, fill="#FEF2F2", stroke=RED, sw=1.2, r=7)
+    svg.text(nx + 26, py + 80, "换观测维度，不是把题目改窄", size=10, fill="#78716C")
+    svg.rect(nx + 28 + ew, py + 38, ew, 58, fill="#FEF2F2", stroke=RED, sw=1.2, r=7)
     svg.text(nx + 38 + ew, py + 60, "实质重复 → 淘汰", size=12, fill="#991B1B", weight="600")
-    svg.text(nx + 38 + ew, py + 80, "记入漏斗，作反重复记忆", size=10.5, fill="#78716C")
-    svg.path(f"M {nx + card_w / 2:g} {y + CARD_H + 2:g} L {nx + card_w / 2:g} {py - 2:g}")
+    svg.text(nx + 38 + ew, py + 80, "记入漏斗，作反重复记忆", size=10, fill="#78716C")
+    svg.path(f"M {nx + card_w / 2:g} {y2 + CARD_H + 2:g} L {nx + card_w / 2:g} {py - 2:g}")
 
-    # ── (c) 工具区 ───────────────────────────────────────────
+    # ── 工具区 ───────────────────────────────────────────
     ty = py + PANEL_H + TOOLS_Y_GAP
     svg.text(MARGIN - 2, ty - 8, "(c)", size=12, fill=MUTED, weight="600")
     svg.text(MARGIN, ty + 18, "配套工具", size=14, fill=INK, weight="700")
-    svg.text(MARGIN + 72, ty + 18, "8 个 · 纯 Python 标准库 · 任何能跑 bash 的 agent 可用",
-             size=11, fill=MUTED)
+    svg.text(MARGIN + 72, ty + 18, "8 个 · 纯 Python 标准库 · 任何能跑 bash 的 agent 可用", size=11, fill=MUTED)
     tools = [
         ("project_brief", "立项确认"), ("venue_probe", "实验模板"),
         ("novelty_check", "查候选"),   ("novelty_report", "取证校验"),
@@ -272,7 +238,7 @@ def build(target):
         cx = MARGIN + i * (tw + TOOL_GAP)
         tool_card(svg, cx, ty + 32, tw, TOOL_H, name, use)
 
-    # ── (d) 融合层 / 跨平台 ──────────────────────────────────
+    # ── 融合层 / 跨平台 ──────────────────────────────────
     fy = ty + 32 + TOOL_H + FUSION_Y_GAP
     svg.text(MARGIN - 2, fy - 8, "(d)", size=12, fill=MUTED, weight="600")
     svg.shadow(MARGIN, fy, inner, FUSION_H, r=12)
@@ -285,11 +251,11 @@ def build(target):
     for i, (t, l1, l2, c) in enumerate(fusion_cards):
         cx = MARGIN + 16 + i * (fcw + 12)
         cy = fy + 52
-        svg.rect(cx, cy, fcw, 52, fill="#F8FAFC", stroke=c, sw=1.3, r=8)
-        svg.text(cx + 12, cy + 22, t, size=12, fill=INK, weight="600")
-        svg.text(cx + 12, cy + 40, l1, size=10, fill=SUB)
+        svg.rect(cx, cy, fcw, 48, fill="#F8FAFC", stroke=c, sw=1.3, r=8)
+        svg.text(cx + 12, cy + 20, t, size=12, fill=INK, weight="600")
+        svg.text(cx + 12, cy + 38, l1, size=10, fill=SUB)
 
-    # ── 色卡 + 平台条 ───────────────────────────────────────
+    # ── 色卡 + 平台条 ───────────────────────────────────
     pal_y = fy + FUSION_H + PAL_Y_GAP
     svg.add(f'<text x="{MARGIN}" y="{pal_y + 4}" font-size="12" font-weight="700" fill="{MUTED}" letter-spacing="2">PALETTE</text>')
     pal = [("#34D399", "造现象"), ("#22D3EE", "找规律"), ("#FBBF24", "反推"),
@@ -303,9 +269,9 @@ def build(target):
     bar_y = pal_y + 16 + PAL_H + 20
     svg.shadow(MARGIN, bar_y, inner, BAR_H, r=BAR_H / 2)
     svg.rect(MARGIN, bar_y, inner, BAR_H, fill="url(#bar)", r=BAR_H / 2)
-    svg.text(W / 2, bar_y + BAR_H / 2 + 7, bar_text, size=16, fill="#FFFFFF", weight="700", anchor="middle")
+    svg.text(W / 2, bar_y + BAR_H / 2 + 7, bar_text, size=15, fill="#FFFFFF", weight="700", anchor="middle")
 
-    svg.h = bar_y + BAR_H + 36
+    svg.h = bar_y + BAR_H + 34
     bg = f'<rect width="{W}" height="{svg.h:g}" fill="{BG}"/>'
     svg.o.insert(1, bg)
     return svg
