@@ -40,7 +40,7 @@ PAD = 28
 TITLE_Y = 56
 SUB_Y = 90
 ROW_Y = 130
-CARD_H = 260
+CARD_H = 280
 CARD_GAP = 24
 ROW_GAP = 44
 PANEL_Y_GAP = 50
@@ -109,13 +109,14 @@ def stage_card(svg, x, y, w, h, key, title, lines, foot=None, deco=None):
     svg.shadow(x, y, w, h)
     svg.rect(x, y, w, h, fill=tint, stroke=stroke, sw=1.8, r=12)
     svg.rect(x + 14, y + 13, w - 28, 5, fill=bar, r=2.5)
-    ty = y + 48
-    svg.text(x + 18, ty, title, size=19, fill=title_c, weight="700")
-    ly = ty + 30
+    ty = y + 46
+    svg.text(x + 18, ty, title, size=21, fill=title_c, weight="700")
+    ly = ty + 32
     for ln in lines:
-        svg.text(x + 18, ly, ln, size=13.5, fill=SUB)
-        ly += 24
+        svg.text(x + 18, ly, ln, size=14.5, fill=SUB)
+        ly += 26
     if deco:
+        svg.rect(x + 12, y + 140, w - 24, h - 152, fill="#F8FAFC", r=8)
         deco(svg, x, y, w, h)
     if foot:
         svg.text(x + 18, y + h - 14, foot, size=11.5, fill=MUTED)
@@ -145,14 +146,14 @@ def deco_brief(svg, x, y, w, h):
     items = [("方向", True), ("算力", True), ("时间", True), ("目标", False)]
     bx = x + 20
     for i, (t, ok) in enumerate(items):
-        cy = y + 108 + i * 26
+        cy = y + 152 + i * 26
         svg.add(f'<rect x="{bx}" y="{cy}" width="20" height="20" rx="4" fill="{"#ECFDF5" if ok else "#FEF2F2"}" stroke="{"#34D399" if ok else "#F87171"}" stroke-width="1.5"/>')
         svg.add(f'<text x="{bx+4}" y="{cy+14}" font-size="12" fill="{"#059669" if ok else "#DC2626"}" font-weight="700">{"✓" if ok else "?"}</text>')
         svg.add(f'<text x="{bx+28}" y="{cy+14}" font-size="12" fill="{SUB}">{t}</text>')
 
 def deco_template(svg, x, y, w, h):
     # 左：一叠文档；右：放大镜，对应"找论文取模板"
-    dx, dy = x + 24, y + 112
+    dx, dy = x + 24, y + 148
     svg.add(f'<rect x="{dx}" y="{dy}" width="52" height="64" rx="5" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.5" transform="rotate(-4 {dx+26} {dy+32})"/>')
     svg.add(f'<rect x="{dx+6}" y="{dy+6}" width="52" height="64" rx="5" fill="#DBEAFE" stroke="#60A5FA" stroke-width="1.5"/>')
     for i in range(4):
@@ -165,7 +166,7 @@ def deco_template(svg, x, y, w, h):
 def deco_make(svg, x, y, w, h):
     # 实验网格：3x4 彩色圆点，对应"海量秒级实验"
     colors = ["#6EE7B7", "#67E8F9", "#93C5FD", "#FCD34D", "#FBCFE8", "#A7F3D0", "#FDA4AF", "#C4B5FD", "#FDE68A", "#5EEAD4", "#BAE6FD", "#FED7AA"]
-    ox, oy = x + 24, y + 112
+    ox, oy = x + 28, y + 148
     for i, c in enumerate(colors):
         r, col = divmod(i, 4)
         svg.add(f'<circle cx="{ox + col * 26}" cy="{oy + r * 26}" r="9" fill="{c}"/>')
@@ -174,25 +175,26 @@ def deco_make(svg, x, y, w, h):
 
 def deco_law(svg, x, y, w, h):
     # 占下半卡的大折线图：实线规律 + 虚线不稳定
-    px, py = x + 20, y + 104
-    pw, ph = w - 40, 86
-    pts1 = [(0, ph-18), (pw*0.2, ph-38), (pw*0.4, ph-30), (pw*0.6, ph-52), (pw*0.8, ph-48), (pw, ph-66)]
-    pts2 = [(0, ph-10), (pw*0.25, ph-14), (pw*0.5, ph-8), (pw*0.75, ph-16), (pw, ph-12)]
+    px, py = x + 20, y + 148
+    pw, ph = w - 40, 108
+    pts1 = [(0, ph-24), (pw*0.2, ph-48), (pw*0.4, ph-38), (pw*0.6, ph-64), (pw*0.8, ph-58), (pw, ph-80)]
+    pts2 = [(0, ph-14), (pw*0.25, ph-18), (pw*0.5, ph-11), (pw*0.75, ph-20), (pw, ph-15)]
     svg.add('<polyline points="' + " ".join(f"{px+a:.0f},{py+b:.0f}" for a, b in pts2) + '" fill="none" stroke="#F87171" stroke-width="2" stroke-dasharray="5 4"/>')
     svg.add(f'<polyline points="' + " ".join(f"{px+a:.0f},{py+b:.0f}" for a, b in pts1) + f'" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round"/>')
     svg.add(f'<circle cx="{px+pw}" cy="{py+ph-66}" r="4" fill="#22D3EE"/>')
     svg.add(f'<text x="{px+pw-4}" y="{py+ph-72}" text-anchor="end" font-size="14" fill="#0E7490" font-style="italic" font-family="Georgia, serif">τ(β,λ)</text>')
 
 def deco_idea(svg, x, y, w, h):
-    # 三个大胶囊横排，对应"现象/文献/凭空"三来源
+    # 三来源：胶囊在下，序号并入文字，说明最底
+    items = [("现象 ①", "#FEF3C7", "#B45309", "#F59E0B"), ("文献 ②", "#FFFFFF", "#64748B", "#CBD5E1"), ("凭空 ③", "#FFFFFF", MUTED, "#E2E8F0")]
     pw = (w - 40 - 20) / 3
-    labels = [("现象 ①", "#FEF3C7", "#B45309", "#F59E0B"), ("文献 ②", "#FFFFFF", "#64748B", "#CBD5E1"), ("凭空 ③", "#FFFFFF", MUTED, "#E2E8F0")]
-    for i, (t, f, tc, sc) in enumerate(labels):
+    for i, (t, f, tc, sc) in enumerate(items):
         cx = x + 20 + i * (pw + 10)
-        cy = y + 118
-        svg.add(f'<rect x="{cx}" y="{cy}" width="{pw}" height="34" rx="17" fill="{f}" stroke="{sc}" stroke-width="1.5"/>')
-        svg.add(f'<text x="{cx + pw/2}" y="{cy+22}" text-anchor="middle" font-size="12" font-weight="700" fill="{tc}">{t}</text>')
-    svg.add(f'<text x="{x+20}" y="{y+176}" font-size="11" fill="{MUTED}">优先用规律 · 凭空想=高概率白做</text>')
+        cy = y + 148
+        svg.add(f'<rect x="{cx}" y="{cy}" width="{pw}" height="36" rx="18" fill="{f}" stroke="{sc}" stroke-width="1.5"/>')
+        svg.add(f'<text x="{cx + pw/2}" y="{cy+23}" text-anchor="middle" font-size="13" font-weight="700" fill="{tc}">{t}</text>')
+    svg.add(f'<text x="{x+20}" y="{y+212}" font-size="11" fill="{MUTED}">优先用规律 · 凭空想 = 高概率白做</text>')
+
 
 def deco_novel(svg, x, y, w, h):
     # 三个大圆圈 R1R2R3 + 右侧"只读摘要✗"徽章
@@ -206,7 +208,7 @@ def deco_novel(svg, x, y, w, h):
 
 def deco_verify(svg, x, y, w, h):
     # 大柱状图 keep/discard/crash
-    bx, by = x + 30, y + 176
+    bx, by = x + 30, y + 192
     bars = [("keep", 52, "#34D399"), ("discard", 30, "#CBD5E1"), ("crash", 14, "#F87171")]
     for i, (t, bh, c) in enumerate(bars):
         cx = bx + i * 52
