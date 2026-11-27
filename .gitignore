@@ -1,3 +1,7 @@
 node_modules/
 *.log
 .DS_Store
+# 脚本运行时产物（用户项目里生成，不进仓库）
+funnel.tsv
+PROJECT_BRIEF.md
+run.log
