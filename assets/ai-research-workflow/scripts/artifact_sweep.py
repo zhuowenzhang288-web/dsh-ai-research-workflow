@@ -22,7 +22,9 @@ import os
 import re
 import sys
 
-EPHEMERAL_NAME = re.compile(r"(tmp|temp|backup|old|\.bak|\.swp|__pycache__|\.pyc$)", re.I)
+EPHEMERAL_NAME = re.compile(r"(^|[/_.])(tmp|temp|backup|old)([/_.]|$)|\.bak$|\.swp$|__pycache__|\.pyc$", re.I)
+# 文档/论文永不判 ephemeral（"template"含"temp"会误报）
+NEVER_EPHEMERAL = re.compile(r"\.(pdf|md|tex|bib|txt|docx?|pptx?|xlsx?)$", re.I)
 BIG_DATA = re.compile(r"\.(csv|npy|npz|pt|pth|ckpt|safetensors|log|out)$", re.I)
 GENERATOR_NEARBY = re.compile(r"\.(py|ipynb)$")
 MB = 1024 * 1024
@@ -35,6 +37,8 @@ def human(n):
 def classify(path, size):
     """返回 (级别, 理由)。级别: ephemeral / regenerable / None(不管)。"""
     name = os.path.basename(path)
+    if NEVER_EPHEMERAL.search(name):
+        return None, "文档/论文，永不判 ephemeral"
     if EPHEMERAL_NAME.search(name):
         return "ephemeral", "临时/缓存命名"
     ext = os.path.splitext(name)[1].lower()
