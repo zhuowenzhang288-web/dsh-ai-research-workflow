@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "AI research workflow",
-    "description": "Phenomenon-driven research workflow skill: run small experiments to find laws first, then derive ideas. Covers novelty check, paper analysis, experiment loop, and audit chain."
+    "title": "Research mode",
+    "description": "A research agent on DSH: step 0 project brief → phenomenon discovery (learn experiment design from published papers first) → find laws → derive ideas → novelty check → verify → five-layer audit. Discipline stays resident, not loaded on demand."
   }
 }
