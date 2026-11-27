@@ -40,7 +40,7 @@ PAD = 28
 TITLE_Y = 56
 SUB_Y = 90
 ROW_Y = 130
-CARD_H = 210
+CARD_H = 240
 CARD_GAP = 24
 ROW_GAP = 44
 PANEL_Y_GAP = 50
@@ -109,16 +109,16 @@ def stage_card(svg, x, y, w, h, key, title, lines, foot=None, deco=None):
     svg.shadow(x, y, w, h)
     svg.rect(x, y, w, h, fill=tint, stroke=stroke, sw=1.8, r=12)
     svg.rect(x + 14, y + 13, w - 28, 5, fill=bar, r=2.5)
-    ty = y + 44
-    svg.text(x + 16, ty, title, size=16, fill=title_c, weight="700")
-    ly = ty + 26
+    ty = y + 48
+    svg.text(x + 18, ty, title, size=19, fill=title_c, weight="700")
+    ly = ty + 30
     for ln in lines:
-        svg.text(x + 16, ly, ln, size=12, fill=SUB)
-        ly += 21
+        svg.text(x + 18, ly, ln, size=13.5, fill=SUB)
+        ly += 24
     if deco:
         deco(svg, x, y, w, h)
     if foot:
-        svg.text(x + 16, y + h - 12, foot, size=10.5, fill=MUTED)
+        svg.text(x + 18, y + h - 14, foot, size=11.5, fill=MUTED)
 
 
 def tool_card(svg, x, y, w, h, name, use):
@@ -129,6 +129,16 @@ def tool_card(svg, x, y, w, h, name, use):
 
 
 
+
+
+def deco_template(svg, x, y, w, h):
+    # 右下角：文档 + 放大镜
+    dx, dy = x + w - 90, y + h - 80
+    svg.add(f'<rect x="{dx}" y="{dy}" width="44" height="54" rx="5" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.5"/>')
+    for i in range(4):
+        svg.add(f'<line x1="{dx+7}" y1="{dy+12+i*11}" x2="{dx+37}" y2="{dy+12+i*11}" stroke="#93C5FD" stroke-width="2"/>')
+    svg.add(f'<circle cx="{dx+52}" cy="{dy+48}" r="12" fill="none" stroke="#1D4ED8" stroke-width="2"/>')
+    svg.add(f'<line x1="{dx+60}" y1="{dy+56}" x2="{dx+70}" y2="{dy+66}" stroke="#1D4ED8" stroke-width="2.5"/>')
 
 def deco_brief(svg, x, y, w, h):
     # 左下角：清单勾选
@@ -143,18 +153,18 @@ def deco_make(svg, x, y, w, h):
     colors = ["#6EE7B7", "#67E8F9", "#93C5FD", "#FCD34D", "#FBCFE8", "#A7F3D0", "#FDA4AF", "#C4B5FD", "#FDE68A"]
     for i, c in enumerate(colors):
         r, col = divmod(i, 3)
-        svg.add(f'<rect x="{x + w - 76 + col * 20}" y="{y + h - 72 + r * 20}" width="14" height="14" rx="3" fill="{c}" opacity="0.85"/>')
-    svg.add(f'<text x="{x + w - 76}" y="{y + h - 78}" font-size="8.5" fill="{MUTED}">n≈500 runs</text>')
+        svg.add(f'<rect x="{x + w - 88 + col * 24}" y="{y + h - 76 + r * 24}" width="18" height="18" rx="4" fill="{c}" opacity="0.9"/>')
+    svg.add(f'<text x="{x + w - 88}" y="{y + h - 84}" font-size="10" fill="{MUTED}">n≈500 runs</text>')
 
 def deco_law(svg, x, y, w, h):
     # 底部：实线 + 虚线 + 公式
-    px, py = x + 16, y + h - 58
+    px, py = x + 18, y + h - 64
     pts1 = [(0, 26), (20, 14), (40, 20), (60, 6), (80, 2)]
     pts2 = [(0, 32), (20, 30), (40, 34), (60, 26), (80, 28)]
     svg.add('<polyline points="' + " ".join(f"{px+a},{py+b}" for a, b in pts2) + '" fill="none" stroke="#F87171" stroke-width="1.5" stroke-dasharray="4 3"/>')
     svg.add(f'<polyline points="' + " ".join(f"{px+a},{py+b}" for a, b in pts1) + f'" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round"/>')
     svg.add(f'<circle cx="{px+80}" cy="{py+2}" r="3" fill="#22D3EE"/>')
-    svg.add(f'<text x="{px+88}" y="{py+8}" font-size="13" fill="#0E7490" font-style="italic" font-family="Georgia, serif">τ(β,λ)</text>')
+    svg.add(f'<text x="{px+92}" y="{py+10}" font-size="15" fill="#0E7490" font-style="italic" font-family="Georgia, serif">τ(β,λ)</text>')
     svg.add(f'<text x="{px}" y="{py+48}" font-size="9" fill="{MUTED}">全条件成立 ✓ · 剔除不稳定 ✗</text>')
 
 def deco_idea(svg, x, y, w, h):
@@ -163,27 +173,27 @@ def deco_idea(svg, x, y, w, h):
     labels = [("现象 ①", "#FEF3C7", "#B45309", "#F59E0B"), ("文献 ②", "#FFFFFF", "#64748B", "#CBD5E1"), ("凭空 ③", "#FFFFFF", MUTED, "#E2E8F0")]
     for i, (t, f, tc, sc) in enumerate(labels):
         cx = x + 16 + i * (pw + 8)
-        cy = y + h - 56
-        svg.add(f'<rect x="{cx}" y="{cy}" width="{pw}" height="24" rx="12" fill="{f}" stroke="{sc}" stroke-width="1.2"/>')
-        svg.add(f'<text x="{cx + pw/2}" y="{cy+16}" text-anchor="middle" font-size="10" font-weight="700" fill="{tc}">{t}</text>')
+        cy = y + h - 62
+        svg.add(f'<rect x="{cx}" y="{cy}" width="{pw}" height="28" rx="14" fill="{f}" stroke="{sc}" stroke-width="1.2"/>')
+        svg.add(f'<text x="{cx + pw/2}" y="{cy+19}" text-anchor="middle" font-size="11" font-weight="700" fill="{tc}">{t}</text>')
     svg.add(f'<text x="{x+16}" y="{y+h-20}" font-size="9" fill="{MUTED}">优先用规律 · 凭空想=高概率白做</text>')
 
 def deco_novel(svg, x, y, w, h):
     # 底部：R1 R2 R3 圆圈 + 只读摘要
     rx = x + 18
     for i, lab in enumerate(["R1", "R2", "R3"]):
-        svg.add(f'<circle cx="{rx + i * 34}" cy="{y+h-44}" r="13" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.5"/>')
-        svg.add(f'<text x="{rx + i * 34}" y="{y+h-40}" text-anchor="middle" font-size="9" font-weight="700" fill="#1D4ED8">{lab}</text>')
-    svg.add(f'<rect x="{rx + 108}" y="{y+h-58}" width="86" height="22" rx="11" fill="#FEF2F2" stroke="#F87171" stroke-width="1.2"/>')
-    svg.add(f'<text x="{rx + 151}" y="{y+h-43}" text-anchor="middle" font-size="9" font-weight="700" fill="#B91C1C">只读摘要 ✗</text>')
+        svg.add(f'<circle cx="{rx + i * 38}" cy="{y+h-50}" r="16" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.5"/>')
+        svg.add(f'<text x="{rx + i * 38}" y="{y+h-45}" text-anchor="middle" font-size="10" font-weight="700" fill="#1D4ED8">{lab}</text>')
+    svg.add(f'<rect x="{rx + 120}" y="{y+h-64}" width="92" height="26" rx="11" fill="#FEF2F2" stroke="#F87171" stroke-width="1.2"/>')
+    svg.add(f'<text x="{rx + 166}" y="{y+h-46}" text-anchor="middle" font-size="10" font-weight="700" fill="#B91C1C">只读摘要 ✗</text>')
     svg.add(f'<text x="{x+16}" y="{y+h-18}" font-size="9" fill="{MUTED}">R1 同问题 · R2 同方法 · R3 相邻领域</text>')
 
 def deco_verify(svg, x, y, w, h):
     # 底部：keep/discard 柱状图
-    bx, by = x + 20, y + h - 32
-    svg.add(f'<rect x="{bx}" y="{by-28}" width="14" height="28" rx="2" fill="#34D399"/>')
-    svg.add(f'<rect x="{bx+20}" y="{by-16}" width="14" height="16" rx="2" fill="#CBD5E1"/>')
-    svg.add(f'<rect x="{bx+40}" y="{by-8}" width="14" height="8" rx="2" fill="#F87171"/>')
+    bx, by = x + 22, y + h - 36
+    svg.add(f'<rect x="{bx}" y="{by-34}" width="16" height="34" rx="2" fill="#34D399"/>')
+    svg.add(f'<rect x="{bx+24}" y="{by-20}" width="16" height="20" rx="2" fill="#CBD5E1"/>')
+    svg.add(f'<rect x="{bx+48}" y="{by-10}" width="16" height="10" rx="2" fill="#F87171"/>')
     svg.add(f'<line x1="{bx-4}" y1="{by}" x2="{bx+60}" y2="{by}" stroke="#CBD5E1" stroke-width="1.5"/>')
     svg.add(f'<text x="{bx+66}" y="{by-18}" font-size="9" fill="#6B7280">keep</text>')
     svg.add(f'<text x="{bx+66}" y="{by-6}" font-size="9" fill="#6B7280">discard</text>')
@@ -193,10 +203,10 @@ def deco_audit(svg, x, y, w, h):
     # 底部：五层 ✓ + FAIL 印章
     ax = x + 16
     for i in range(5):
-        svg.add(f'<rect x="{ax + i*24}" y="{y+h-56}" width="18" height="18" rx="4" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>')
-        svg.add(f'<text x="{ax + i*24 + 3}" y="{y+h-43}" font-size="11" fill="#059669" font-weight="700">✓</text>')
-    svg.add(f'<circle cx="{ax + 5*24 + 12}" cy="{y+h-47}" r="13" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>')
-    svg.add(f'<text x="{ax + 5*24 + 12}" y="{y+h-43}" text-anchor="middle" font-size="8" font-weight="700" fill="#DC2626">FAIL</text>')
+        svg.add(f'<rect x="{ax + i*28}" y="{y+h-62}" width="22" height="22" rx="4" fill="#ECFDF5" stroke="#34D399" stroke-width="1.5"/>')
+        svg.add(f'<text x="{ax + i*28 + 4}" y="{y+h-46}" font-size="13" fill="#059669" font-weight="700">✓</text>')
+    svg.add(f'<circle cx="{ax + 5*28 + 14}" cy="{y+h-51}" r="16" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>')
+    svg.add(f'<text x="{ax + 5*28 + 14}" y="{y+h-47}" text-anchor="middle" font-size="9" font-weight="700" fill="#DC2626">FAIL</text>')
     svg.add(f'<text x="{x+16}" y="{y+h-20}" font-size="9" fill="{MUTED}">诚·证·数·引·驳 全 PASS · 任一 FAIL 阻断</text>')
 
 
@@ -241,7 +251,7 @@ def build(target):
     y = ROW_Y
     row1 = [
         ("brief",  "立项确认",    ["先问清：方向·算力", "时间·目标·成功标准", "project_brief.py"], "第 0 步 · 先于一切", deco_brief),
-        ("novel",  "找实验模板",   ["arXiv 找已发表论文", "看别人怎么做实验", "venue_probe.py"], "不限顶会 · 先模板后扫", None),
+        ("novel",  "找实验模板",   ["arXiv 找已发表论文", "看别人怎么做实验", "venue_probe.py"], "不限顶会 · 先模板后扫", deco_template),
         ("make",   "造现象",      ["小系统 0.1–4M 参数", "几百个秒级实验", "预注册 · 异常四关"], "先看已发表论文怎么做", deco_make),
         ("law",    "找规律",      ["每批追问有无规律", "全条件成立才保留", "剔除不稳定"], None, deco_law),
     ]
