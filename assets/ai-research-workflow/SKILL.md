@@ -23,6 +23,7 @@ whenToUse: 用户要做科研相关工作（想 idea/选题、判断 idea 能否
 | `experiment_log.py` | §4 实验日志 | `add` 记录一次实验 / `list` 汇总 keep·discard·crash |
 | `verify_citations.py` | §7.3 引用审计 | 核验报告里的 arXiv/DOI，输出幻觉率 HR |
 | `audit_chain.py` | §7.3 审计链 | 五层逐层判定；`verify-results 报告.md` 自动查结果编造（数值 back-pointer） |
+| `artifact_sweep.py` | 产物清理 | 扫描 ephemeral/regenerable 产物；`--apply` 删 ephemeral |
 
 ## 0.1 触发机制（命中即执行，先于一切）
 
@@ -391,6 +392,7 @@ whenToUse: 用户要做科研相关工作（想 idea/选题、判断 idea 能否
 6. **子领域是硬约束**——见 §9。单卡别碰"7B 起步"的赛道。
 7. **别把题目越做越窄（token 黑洞）**——大方向撞死后，连续做它的窄变体是最烧 token 的死法：每窄一级都重付一轮查新+实验，存活率不降反低（实战：N1 连钻 5 个窄变体全死）。换方向 > 钻窄缝；要深挖就挖新维度，不是收窄。→ §1.3 防窄化 / §2 深挖≠收窄
 8. **别直接盲扫现象**——现象驱动不等于随便选旋钮硬扫：宽扫的命中率很低，扫出来的多是教科书常识或噪声（实战：26 次挖空位 + 30 个现象，根因是"无领域直觉定位不到反直觉现象"）。先看目标会议的录用论文**怎么做实验**，用它们的实验设计当模板，再去找异常。→ §4.2.1 第 0 步
+9. **产出会堆积，要主动判断删不删**——agent 做出的中间产物（实验报告、IDEA_REPORT、查新报告、checkpoint）从不判断该留该删，越堆越占空间（实战：一个项目残留 3.2GB checkpoint）。给每个产物定**保留级别**：ephemeral 用完即删；regenerable 只留源头（报告由数据+代码生成，删报告留数据/代码）；durable 才进 repo。→ scripts/artifact_sweep.py
 
 ## 11. 参考来源（本 skill 的方法论出处）
 
