@@ -21,7 +21,7 @@
 
 | 组件 | 内容 | 作用 |
 |---|---|---|
-| **skill** | `assets/ai-research-workflow/`（SKILL.md + 7 脚本） | 方法论 + 可执行工具 |
+| **skill** | `assets/ai-research-workflow/`（SKILL.md + 8 脚本） | 方法论 + 可执行工具 |
 | **科研模式 preset** | `research-preset/` | 选模式即成科研 agent，纪律烧进系统提示 |
 | **人格** | 科研侦探 | 好奇但克制、证据至上、把失败当线索 |
 | **自动循环** | 见主仓 AUTO_MODE.md | goal + schedule 拼出无人值守循环 |
